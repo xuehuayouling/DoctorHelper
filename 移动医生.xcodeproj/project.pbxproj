@@ -11,6 +11,7 @@
 		1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11921CBB507D002CE3AC /* UserDTO.swift */; };
 		1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */; };
 		1A8A11991CBB9A4A002CE3AC /* LoginUserInfoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */; };
+		1A8A119B1CBBA38F002CE3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A119A1CBBA38F002CE3AC /* Main.storyboard */; };
 		1A9355DC1CB77F3200CE7277 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9355CF1CB77EA000CE7277 /* Alamofire.framework */; };
 		1A9355DD1CB77F3200CE7277 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9355CF1CB77EA000CE7277 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A9355E21CB7811000CE7277 /* constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A9355E11CB7811000CE7277 /* constants.plist */; };
@@ -115,6 +116,7 @@
 		1A8A11921CBB507D002CE3AC /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeptListViewController.swift; sourceTree = "<group>"; };
 		1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserInfoUtils.swift; sourceTree = "<group>"; };
+		1A8A119A1CBBA38F002CE3AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1A9355C41CB77EA000CE7277 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../Documents/work/资源/第三方框架/Alamofire/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		1A9355E11CB7811000CE7277 /* constants.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = constants.plist; sourceTree = "<group>"; };
 		1A9355E31CB781EC00CE7277 /* NetWorkUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkUtils.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				1ADE199E1CB3B991002BCA91 /* LaunchScreen.storyboard */,
 				1A0633FC1CB497D90072319E /* Login.storyboard */,
+				1A8A119A1CBBA38F002CE3AC /* Main.storyboard */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0633FD1CB497D90072319E /* Login.storyboard in Resources */,
+				1A8A119B1CBBA38F002CE3AC /* Main.storyboard in Resources */,
 				1ADE19A01CB3B991002BCA91 /* LaunchScreen.storyboard in Resources */,
 				1A9355E21CB7811000CE7277 /* constants.plist in Resources */,
 				1ADE199D1CB3B991002BCA91 /* Assets.xcassets in Resources */,

@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated);
         self.navigationController?.navigationBarHidden = false;
     }
     @IBAction func hideSoftKeyboard() {
@@ -65,8 +66,8 @@ class LoginViewController: UIViewController {
                                     let userDTO:UserDTO = UserDTO.modelObjectWithDictionary(user);
                                     LoginUserInfoUtils.saveUserInfo(userDTO);
                                     
-                                    let sb = UIStoryboard(name:"Login", bundle: nil);
-                                    let deptVC = sb.instantiateViewControllerWithIdentifier("deptListViewController");
+                                    let sb = UIStoryboard(name:"Main", bundle: nil);
+                                    let deptVC = sb.instantiateInitialViewController()!;
                                     self.navigationController?.presentViewController(deptVC, animated: true, completion: nil);
                                 }
                             }

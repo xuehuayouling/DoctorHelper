@@ -20,6 +20,16 @@ class DeptListViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.navigationBarHidden = true;
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated);
+        self.navigationController?.navigationBarHidden = false;
+    }
+    
     func getDeptList() -> Void {
         if let user:UserDTO = LoginUserInfoUtils.getSavedUserInfo() {
             let params = ["userCode":user.userCode, "token":user.token];
