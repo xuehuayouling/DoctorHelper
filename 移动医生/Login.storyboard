@@ -137,7 +137,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginButtonDidClick:" destination="MGG-jn-jiI" eventType="touchUpInside" id="gQU-ky-3Yf"/>
+                                            <action selector="loginButtonDidClick:" destination="MGG-jn-jiI" eventType="touchUpInside" id="PVx-M8-Rxx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -193,6 +193,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zb-43-y3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653" y="289"/>
+        </scene>
+        <!--Dept List View Controller-->
+        <scene sceneID="keG-40-2ze">
+            <objects>
+                <viewController storyboardIdentifier="deptListViewController" id="fe3-2v-XIm" customClass="DeptListViewController" customModule="移动医生" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jzD-Ut-sfc"/>
+                        <viewControllerLayoutGuide type="bottom" id="bVQ-jV-FgZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BmH-cz-LHa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgh-OW-s6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1381" y="277"/>
         </scene>
     </scenes>
     <resources>

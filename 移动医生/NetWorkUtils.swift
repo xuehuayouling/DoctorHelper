@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Utils: NSObject {
+class NetWorkUtils: NSObject {
 
     class func getBaseUrlStr() -> String? {
         let plistPath:String = NSBundle.mainBundle().pathForResource("constants", ofType: "plist")!;
@@ -24,6 +24,17 @@ class Utils: NSObject {
             let plistPath:String = NSBundle.mainBundle().pathForResource("constants", ofType: "plist")!;
             let dic:NSMutableDictionary = NSMutableDictionary(contentsOfFile: plistPath)!;
             if let value:String = dic.valueForKey("loginKey") as? String {
+                return baseUrl + "/" + value;
+            }
+        }
+        return nil;
+    }
+    
+    class func getDpetListUrlStr() -> String? {
+        if let baseUrl:String = getBaseUrlStr() {
+            let plistPath:String = NSBundle.mainBundle().pathForResource("constants", ofType: "plist")!;
+            let dic:NSMutableDictionary = NSMutableDictionary(contentsOfFile: plistPath)!;
+            if let value:String = dic.valueForKey("deptListKey") as? String {
                 return baseUrl + "/" + value;
             }
         }

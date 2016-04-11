@@ -51,15 +51,28 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonDidClick(sender: AnyObject) {
-        if let str:String = Utils.getLoginUrlStr() {
+        if let url:String = NetWorkUtils.getLoginUrlStr() {
             if let userName = usernameTextField.text {
                 if let passWord:String = passwordTextField.text {
                     changeRememberLoginMsg();
                     let params = ["userCode":userName, "pwd":passWord];
-                    let request = Alamofire.request(.GET, str, parameters: params);
+                    let request = Alamofire.request(.GET, url, parameters: params);
                     print(request);
-                    request.responseString { response in
-                        print(response);
+                    request.responseJSON { response in
+                        if let dic:NSDictionary = response.result.value as? NSDictionary {
+                            if let data:NSDictionary = dic.valueForKey("data") as? NSDictionary {
+                                if let user:NSDictionary = data.valueForKey("user") as? NSDictionary {
+                                    let userDTO:UserDTO = UserDTO.modelObjectWithDictionary(user);
+                                    LoginUserInfoUtils.saveUserInfo(userDTO);
+                                    
+                                    let sb = UIStoryboard(name:"Login", bundle: nil);
+                                    let deptVC = sb.instantiateViewControllerWithIdentifier("deptListViewController");
+                                    self.navigationController?.presentViewController(deptVC, animated: true, completion: nil);
+                                }
+                            }
+                            
+                        }
+                        
                     };
                 }
             }
