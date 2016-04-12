@@ -9,7 +9,9 @@
 import UIKit
 import Alamofire
 
-class DeptListViewController: UIViewController {
+class DeptListViewController: UITableViewController {
+    
+    var userDepts:NSMutableArray? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +24,13 @@ class DeptListViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        self.navigationController?.navigationBarHidden = true;
+        self.tableView.tableFooterView = UIView.init();
+//        self.navigationController?.navigationBarHidden = true;
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated);
-        self.navigationController?.navigationBarHidden = false;
+//        self.navigationController?.navigationBarHidden = false;
     }
     
     func getDeptList() -> Void {
@@ -36,9 +39,44 @@ class DeptListViewController: UIViewController {
             if let url = NetWorkUtils.getDpetListUrlStr() {
                 let request = Alamofire.request(.GET, url, parameters: params);
                 print(request);
+                request.responseJSON { response in
+                    if let dic = response.result.value as? NSDictionary {
+                        if let data = dic.valueForKey("data") as? NSDictionary {
+                            if let userDepts = data.valueForKey("userDept") as? NSMutableArray {
+                                self.userDepts = userDepts;
+                                self.tableView.reloadData();
+                            }
+                        }
+                    }
+                }
             }
-            
         }
-        
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let count = userDepts?.count {
+            return count;
+        }
+        return 0;
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("deptCell")!;
+        if let dic = userDepts![indexPath.row] as? NSDictionary {
+            let userDept = UserDeptDTO.modelObjectWithDictionary(dic);
+            cell.textLabel?.text = userDept.deptName;
+            cell.textLabel?.textAlignment = NSTextAlignment.Center;
+        }
+        return cell;
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let dic = userDepts![indexPath.row] as? NSDictionary {
+            let userDept = UserDeptDTO.modelObjectWithDictionary(dic);
+        }
     }
 }

@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated);
         self.navigationController?.navigationBarHidden = false;
     }
+    
     @IBAction func hideSoftKeyboard() {
         self.view.endEditing(true);
     }

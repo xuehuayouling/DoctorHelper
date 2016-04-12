@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FE881CBCC69700322B0B /* PatientListViewController.swift */; };
 		1A0633FD1CB497D90072319E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0633FC1CB497D90072319E /* Login.storyboard */; };
 		1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11921CBB507D002CE3AC /* UserDTO.swift */; };
 		1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */; };
@@ -21,6 +22,7 @@
 		1ADE19A01CB3B991002BCA91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE199E1CB3B991002BCA91 /* LaunchScreen.storyboard */; };
 		1ADE19AB1CB3B991002BCA91 /* ____Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE19AA1CB3B991002BCA91 /* ____Tests.swift */; };
 		1ADE19B61CB3B991002BCA91 /* ____UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE19B51CB3B991002BCA91 /* ____UITests.swift */; };
+		1AE1CDF61CBC7873001A3D0A /* UserDeptDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1CDF51CBC7873001A3D0A /* UserDeptDTO.swift */; };
 		1AFDDAD71CBB42520046F776 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDDAD61CBB42520046F776 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A04FE881CBCC69700322B0B /* PatientListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListViewController.swift; sourceTree = "<group>"; };
 		1A0633FC1CB497D90072319E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		1A8A11921CBB507D002CE3AC /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeptListViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 		1ADE19B11CB3B991002BCA91 /* 移动医生UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "移动医生UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADE19B51CB3B991002BCA91 /* ____UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "____UITests.swift"; sourceTree = "<group>"; };
 		1ADE19B71CB3B991002BCA91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE1CDF51CBC7873001A3D0A /* UserDeptDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDeptDTO.swift; sourceTree = "<group>"; };
 		1AFDDAD61CBB42520046F776 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				1A8A11921CBB507D002CE3AC /* UserDTO.swift */,
+				1AE1CDF51CBC7873001A3D0A /* UserDeptDTO.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			children = (
 				1AFDDAD61CBB42520046F776 /* LoginViewController.swift */,
 				1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */,
+				1A04FE881CBCC69700322B0B /* PatientListViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -483,6 +489,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */,
+				1AE1CDF61CBC7873001A3D0A /* UserDeptDTO.swift in Sources */,
+				1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */,
 				1AFDDAD71CBB42520046F776 /* LoginViewController.swift in Sources */,
 				1ADE19961CB3B991002BCA91 /* AppDelegate.swift in Sources */,
 				1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */,

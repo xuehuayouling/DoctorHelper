@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -14,31 +15,264 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="FQ9-Xv-qLr" kind="relationship" relationship="rootViewController" id="zf9-s1-Ngw"/>
+                        <segue destination="uFs-TX-i5l" kind="relationship" relationship="rootViewController" id="x5o-ef-q9N"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZB-Ud-zLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="179"/>
+            <point key="canvasLocation" x="49" y="-31"/>
         </scene>
-        <!--Dept List View Controller-->
-        <scene sceneID="YV1-WQ-yMZ">
+        <!--科室列表-->
+        <scene sceneID="1pb-ca-Xmp">
             <objects>
-                <viewController storyboardIdentifier="deptListViewController" id="FQ9-Xv-qLr" customClass="DeptListViewController" customModule="移动医生" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="uFs-TX-i5l" customClass="DeptListViewController" customModule="移动医生" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uec-Be-s78">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="deptCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="deptCell" id="0Q7-PX-N6a">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Q7-PX-N6a" id="Vvi-DX-bwX">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XVZ-Xx-DXZ" kind="show" id="xgo-bE-lbb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uFs-TX-i5l" id="7gR-YJ-Qws"/>
+                            <outlet property="delegate" destination="uFs-TX-i5l" id="IME-cH-Dc8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="科室列表" id="qtG-VH-UFe"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knC-W2-T7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="-71"/>
+        </scene>
+        <!--Patient List View Controller-->
+        <scene sceneID="5EQ-gw-pCJ">
+            <objects>
+                <viewController id="XVZ-Xx-DXZ" customClass="PatientListViewController" customModule="移动医生" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VHS-nw-TLg"/>
-                        <viewControllerLayoutGuide type="bottom" id="B2F-y1-7Tk"/>
+                        <viewControllerLayoutGuide type="top" id="BVl-lr-xzq"/>
+                        <viewControllerLayoutGuide type="bottom" id="REH-Ff-Y3g"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4RM-LO-IIy">
+                    <view key="view" contentMode="scaleToFill" id="QAw-Mc-Jnq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="患者列表-1" translatesAutoresizingMaskIntoConstraints="NO" id="7bR-iW-scv">
+                                <rect key="frame" x="0.0" y="-4" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="CFq-gD-Ybq">
+                                        <variation key="widthClass=compact" constant="104"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ML-gU-Zjv">
+                                <rect key="frame" x="0.0" y="20" width="600" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbo-QG-peX">
+                                        <rect key="frame" x="10" y="10" width="120" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="062-Tj-Xb3"/>
+                                        </constraints>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="当前科室" image="患者列表-2">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vXo-Hg-UxV">
+                                        <rect key="frame" x="140" y="11" width="133" height="19"/>
+                                        <segments>
+                                            <segment title="科室患者"/>
+                                            <segment title="我的患者"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </segmentedControl>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-7U-K4i">
+                                        <rect key="frame" x="320" y="0.0" width="150" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="bQy-aa-scx"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="bQy-aa-scx"/>
+                                            </mask>
+                                        </variation>
+                                    </searchBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="医生姓名" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL8-SQ-zmS">
+                                        <rect key="frame" x="480" y="0.0" width="80" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="TaC-nO-Gnw"/>
+                                            <constraint firstAttribute="width" constant="80" id="lz9-h5-oUj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aK-zs-04l" userLabel="注销">
+                                        <rect key="frame" x="570" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="0zD-Hw-ZQc"/>
+                                            <constraint firstAttribute="width" constant="20" id="1v3-XZ-Uvg"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="患者列表-3"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="jL8-SQ-zmS" firstAttribute="height" secondItem="8ML-gU-Zjv" secondAttribute="height" multiplier="0.5" id="0fZ-7f-oXZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="1aK-zs-04l" secondAttribute="bottom" constant="30" id="2mO-5K-cEo">
+                                        <variation key="widthClass=compact" constant="10"/>
+                                    </constraint>
+                                    <constraint firstItem="vXo-Hg-UxV" firstAttribute="leading" secondItem="kbo-QG-peX" secondAttribute="trailing" constant="10" id="3eZ-0S-Aze"/>
+                                    <constraint firstItem="c4m-7U-K4i" firstAttribute="leading" secondItem="8ML-gU-Zjv" secondAttribute="leading" constant="170" id="42F-wu-1RP">
+                                        <variation key="widthClass=compact" constant="10"/>
+                                    </constraint>
+                                    <constraint firstItem="c4m-7U-K4i" firstAttribute="height" secondItem="jL8-SQ-zmS" secondAttribute="height" id="4OX-Os-eEA"/>
+                                    <constraint firstAttribute="trailing" secondItem="vXo-Hg-UxV" secondAttribute="trailing" constant="127" id="4Ui-RZ-ub1">
+                                        <variation key="widthClass=compact" constant="10"/>
+                                    </constraint>
+                                    <constraint firstItem="c4m-7U-K4i" firstAttribute="centerY" secondItem="8ML-gU-Zjv" secondAttribute="centerY" id="9ML-Dj-bNx"/>
+                                    <constraint firstItem="vXo-Hg-UxV" firstAttribute="baseline" secondItem="kbo-QG-peX" secondAttribute="baseline" id="A6N-Jw-zHM"/>
+                                    <constraint firstItem="kbo-QG-peX" firstAttribute="centerY" secondItem="8ML-gU-Zjv" secondAttribute="centerY" id="Bxg-4k-ZQF"/>
+                                    <constraint firstItem="c4m-7U-K4i" firstAttribute="height" secondItem="jL8-SQ-zmS" secondAttribute="height" id="Cp2-b3-lAj"/>
+                                    <constraint firstItem="1aK-zs-04l" firstAttribute="baseline" secondItem="kbo-QG-peX" secondAttribute="baseline" id="Eqd-Za-N31"/>
+                                    <constraint firstItem="1aK-zs-04l" firstAttribute="leading" secondItem="jL8-SQ-zmS" secondAttribute="trailing" constant="10" id="G0s-Rg-UGe"/>
+                                    <constraint firstItem="jL8-SQ-zmS" firstAttribute="leading" secondItem="c4m-7U-K4i" secondAttribute="trailing" constant="10" id="XAn-p3-Kbb"/>
+                                    <constraint firstItem="jL8-SQ-zmS" firstAttribute="centerY" secondItem="8ML-gU-Zjv" secondAttribute="centerY" id="Xnn-hS-DpN"/>
+                                    <constraint firstAttribute="bottom" secondItem="c4m-7U-K4i" secondAttribute="bottom" constant="40" id="ZbY-Ov-QpO">
+                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstItem="vXo-Hg-UxV" firstAttribute="centerY" secondItem="8ML-gU-Zjv" secondAttribute="centerY" id="awG-JP-3lR"/>
+                                    <constraint firstItem="kbo-QG-peX" firstAttribute="height" secondItem="8ML-gU-Zjv" secondAttribute="height" multiplier="1:2" id="cgb-dw-Y5A"/>
+                                    <constraint firstItem="vXo-Hg-UxV" firstAttribute="height" secondItem="kbo-QG-peX" secondAttribute="height" constant="-2" id="fCE-1s-c9x"/>
+                                    <constraint firstItem="1aK-zs-04l" firstAttribute="height" secondItem="kbo-QG-peX" secondAttribute="height" id="fL9-Tk-Sa4"/>
+                                    <constraint firstItem="kbo-QG-peX" firstAttribute="leading" secondItem="8ML-gU-Zjv" secondAttribute="leading" constant="10" id="g5S-G9-tog"/>
+                                    <constraint firstItem="c4m-7U-K4i" firstAttribute="width" secondItem="8ML-gU-Zjv" secondAttribute="width" multiplier="0.25" id="gFf-tv-wFz"/>
+                                    <constraint firstItem="1aK-zs-04l" firstAttribute="centerY" secondItem="8ML-gU-Zjv" secondAttribute="centerY" id="iPz-xJ-xPN"/>
+                                    <constraint firstItem="jL8-SQ-zmS" firstAttribute="leading" secondItem="c4m-7U-K4i" secondAttribute="trailing" constant="10" id="sKt-vD-w3W"/>
+                                    <constraint firstAttribute="trailing" secondItem="1aK-zs-04l" secondAttribute="trailing" constant="10" id="sVk-aU-VPm"/>
+                                    <constraint firstItem="vXo-Hg-UxV" firstAttribute="baseline" secondItem="kbo-QG-peX" secondAttribute="baseline" id="tys-MI-raH"/>
+                                    <constraint firstItem="kbo-QG-peX" firstAttribute="top" secondItem="8ML-gU-Zjv" secondAttribute="top" constant="20" id="u8h-8R-hdZ">
+                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="jL8-SQ-zmS" secondAttribute="bottom" id="uWt-ct-BuH"/>
+                                    <constraint firstAttribute="height" constant="40" id="xDx-Vs-OTE">
+                                        <variation key="widthClass=compact" constant="80"/>
+                                    </constraint>
+                                    <constraint firstItem="c4m-7U-K4i" firstAttribute="height" secondItem="8ML-gU-Zjv" secondAttribute="height" id="yqe-SP-ZrB"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="u8h-8R-hdZ"/>
+                                        <exclude reference="4Ui-RZ-ub1"/>
+                                        <exclude reference="A6N-Jw-zHM"/>
+                                        <exclude reference="tys-MI-raH"/>
+                                        <exclude reference="42F-wu-1RP"/>
+                                        <exclude reference="Cp2-b3-lAj"/>
+                                        <exclude reference="ZbY-Ov-QpO"/>
+                                        <exclude reference="yqe-SP-ZrB"/>
+                                        <exclude reference="0fZ-7f-oXZ"/>
+                                        <exclude reference="sKt-vD-w3W"/>
+                                        <exclude reference="uWt-ct-BuH"/>
+                                        <exclude reference="2mO-5K-cEo"/>
+                                        <exclude reference="Eqd-Za-N31"/>
+                                        <exclude reference="fL9-Tk-Sa4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Bxg-4k-ZQF"/>
+                                        <include reference="u8h-8R-hdZ"/>
+                                        <exclude reference="3eZ-0S-Aze"/>
+                                        <include reference="4Ui-RZ-ub1"/>
+                                        <exclude reference="awG-JP-3lR"/>
+                                        <include reference="tys-MI-raH"/>
+                                        <include reference="42F-wu-1RP"/>
+                                        <exclude reference="9ML-Dj-bNx"/>
+                                        <include reference="Cp2-b3-lAj"/>
+                                        <include reference="ZbY-Ov-QpO"/>
+                                        <exclude reference="gFf-tv-wFz"/>
+                                        <exclude reference="yqe-SP-ZrB"/>
+                                        <exclude reference="XAn-p3-Kbb"/>
+                                        <exclude reference="Xnn-hS-DpN"/>
+                                        <include reference="sKt-vD-w3W"/>
+                                        <include reference="uWt-ct-BuH"/>
+                                        <include reference="2mO-5K-cEo"/>
+                                        <exclude reference="iPz-xJ-xPN"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KQh-ER-gCG">
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v2z-1g-qhu">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rFS-MT-u1W">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7bR-iW-scv" firstAttribute="width" secondItem="QAw-Mc-Jnq" secondAttribute="width" id="0QC-cC-qAD"/>
+                            <constraint firstItem="KQh-ER-gCG" firstAttribute="top" secondItem="8ML-gU-Zjv" secondAttribute="bottom" id="AaC-MX-aph"/>
+                            <constraint firstItem="7bR-iW-scv" firstAttribute="top" secondItem="BVl-lr-xzq" secondAttribute="bottom" constant="-24" id="BGI-xt-S1I"/>
+                            <constraint firstItem="7bR-iW-scv" firstAttribute="centerX" secondItem="QAw-Mc-Jnq" secondAttribute="centerX" id="IiM-eE-2Rg"/>
+                            <constraint firstItem="8ML-gU-Zjv" firstAttribute="centerX" secondItem="QAw-Mc-Jnq" secondAttribute="centerX" id="SqX-mo-qcR"/>
+                            <constraint firstItem="REH-Ff-Y3g" firstAttribute="top" secondItem="KQh-ER-gCG" secondAttribute="bottom" id="Wc9-1g-8Hm"/>
+                            <constraint firstItem="8ML-gU-Zjv" firstAttribute="width" secondItem="QAw-Mc-Jnq" secondAttribute="width" id="jaB-23-Gec"/>
+                            <constraint firstItem="KQh-ER-gCG" firstAttribute="centerX" secondItem="QAw-Mc-Jnq" secondAttribute="centerX" id="liu-XJ-W2Q"/>
+                            <constraint firstItem="KQh-ER-gCG" firstAttribute="width" secondItem="QAw-Mc-Jnq" secondAttribute="width" id="xeP-PM-C3Z"/>
+                            <constraint firstItem="8ML-gU-Zjv" firstAttribute="top" secondItem="BVl-lr-xzq" secondAttribute="bottom" id="yg8-1e-iEU"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="636-5w-ixq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1452" y="-71"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UhD-9T-hGO">
+            <objects>
+                <viewController id="iRU-fn-TWB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rh8-3G-VO7"/>
+                        <viewControllerLayoutGuide type="bottom" id="nMn-pn-tNo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Obf-Tf-DmF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FHQ-kI-Spx"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="akO-Ev-d1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YmY-kc-OE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="173"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="患者列表-1" width="1024" height="64"/>
+        <image name="患者列表-2" width="19" height="18"/>
+        <image name="患者列表-3" width="39" height="42"/>
+    </resources>
 </document>
