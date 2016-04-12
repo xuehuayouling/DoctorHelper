@@ -75,8 +75,17 @@ class DeptListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let dic = userDepts![indexPath.row] as? NSDictionary {
-            let userDept = UserDeptDTO.modelObjectWithDictionary(dic);
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            if let dic = userDepts![indexPath.row] as? NSDictionary {
+                let userDept = UserDeptDTO.modelObjectWithDictionary(dic);
+                let patientListCV = segue.destinationViewController as! PatientListViewController;
+                patientListCV.userDept = userDept;
+            }
         }
+        
     }
 }
