@@ -127,6 +127,9 @@
                                             <constraint firstAttribute="width" constant="20" id="1v3-XZ-Uvg"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="患者列表-3"/>
+                                        <connections>
+                                            <action selector="loginOutButtonDidClick:" destination="XVZ-Xx-DXZ" eventType="touchUpInside" id="LSA-qm-afp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -262,11 +265,20 @@
                         <outlet property="correctDeptButton" destination="kbo-QG-peX" id="ZY7-N4-Doo"/>
                         <outlet property="doctorNameLabel" destination="jL8-SQ-zmS" id="r2b-eZ-JHb"/>
                         <outlet property="searchBar" destination="c4m-7U-K4i" id="5KA-hC-O4w"/>
+                        <segue destination="2xa-KH-y7q" kind="show" identifier="loginOutSegue" id="Wns-ae-3hc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="636-5w-ixq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1452" y="-71"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="iCU-EZ-kmX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="2xa-KH-y7q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byx-h9-Z2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2070.5" y="-181"/>
         </scene>
     </scenes>
     <resources>

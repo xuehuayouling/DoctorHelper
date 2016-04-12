@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PatientListViewController: UIViewController, UISearchBarDelegate {
+class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertViewDelegate {
 
     var userDept: UserDeptDTO?;
     @IBOutlet weak var correctDeptButton: UIButton!
@@ -39,8 +39,21 @@ class PatientListViewController: UIViewController, UISearchBarDelegate {
         self.navigationController?.navigationBarHidden = true;
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated);
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated);
         self.navigationController?.navigationBarHidden = false;
     }
+    
+    @IBAction func loginOutButtonDidClick(sender: UIButton) {
+        let alert = UIAlertController.init(title: "注销当前账户？", message: nil, preferredStyle: UIAlertControllerStyle.Alert);
+        let confirmAction = UIAlertAction.init(title: "确认", style: UIAlertActionStyle.Default) { (action) in
+            LoginUserInfoUtils.clearSavedUserInfo();
+            self.performSegueWithIdentifier("loginOutSegue", sender: nil);
+        }
+        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil);
+        alert.addAction(confirmAction);
+        alert.addAction(cancelAction);
+        self.presentViewController(alert, animated: true, completion: nil);
+    }
+    
 }

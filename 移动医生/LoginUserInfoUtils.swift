@@ -56,4 +56,17 @@ class LoginUserInfoUtils: NSObject {
         }
         return UserDTO.modelObjectWithDictionary(dic);
     }
+    
+    class func clearSavedUserInfo() -> Void {
+        let userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults();
+        userDefaults.removeObjectForKey("logined_user_info_mobile");
+        userDefaults.removeObjectForKey("logined_user_info_userId");
+        userDefaults.removeObjectForKey("logined_user_info_userRealName");
+        userDefaults.removeObjectForKey("logined_user_info_userCode");
+        userDefaults.removeObjectForKey("logined_user_info_deptCode");
+        userDefaults.removeObjectForKey("logined_user_info_loginTime");
+        userDefaults.removeObjectForKey("logined_user_info_token");
+        userDefaults.removeObjectForKey("logined_user_info_sex");
+        userDefaults.removeObjectForKey("logined_user_info_pwd");
+    }
 }
