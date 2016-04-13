@@ -10,32 +10,20 @@ import UIKit
 
 class UserDeptDTO: NSObject {
 
-    var userName:String = "";// "宁武云",
-    var deptName:String = "";// "儿科",
-    var id:String = "";      // "41_239",
-    var userCode:String = "";// "070807005",
-    var userId:String = "";  // "239",
-    var deptCode:String = "";// "41"
+    let userName:String?;// "宁武云",
+    let deptName:String?;// "儿科",
+    let id:String?;      // "41_239",
+    let userCode:String?;// "070807005",
+    let userId:String?;  // "239",
+    let deptCode:String?;// "41"
     
     init(dic:NSDictionary) {
-        if let value:String = dic.valueForKey("userName")! as? String {
-            userName = value;
-        }
-        if let value:String = dic.valueForKey("deptName")! as? String {
-            deptName = value;
-        }
-        if let value:String = dic.valueForKey("id")! as? String {
-            id = value;
-        }
-        if let value:String = dic.valueForKey("userCode")! as? String {
-            userCode = value;
-        }
-        if let value:String = dic.valueForKey("userId")! as? String {
-            userId = value;
-        }
-        if let value:String = dic.valueForKey("deptCode")! as? String {
-            deptCode = value;
-        }
+        userName = dic.valueForKey("userName") as? String;
+        deptName = dic.valueForKey("deptName") as? String;
+        id = dic.valueForKey("id") as? String;
+        userCode = dic.valueForKey("userCode") as? String;
+        userId = dic.valueForKey("userId") as? String;
+        deptCode = dic.valueForKey("deptCode") as? String;
     }
     
 }

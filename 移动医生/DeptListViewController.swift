@@ -34,23 +34,23 @@ class DeptListViewController: UITableViewController {
     }
     
     func getDeptList() -> Void {
-        if let user:UserDTO = LoginUserInfoUtils.getSavedUserInfo() {
-            let params = ["userCode":user.userCode, "token":user.token];
-            if let url = NetWorkUtils.getDpetListUrlStr() {
-                let request = Alamofire.request(.GET, url, parameters: params);
-                print(request);
-                request.responseJSON { response in
-                    if let dic = response.result.value as? NSDictionary {
-                        if let data = dic.valueForKey("data") as? NSDictionary {
-                            if let userDepts = data.valueForKey("userDept") as? NSMutableArray {
-                                self.userDepts = userDepts;
-                                self.tableView.reloadData();
-                            }
+        let user:UserDTO = LoginUserInfoUtils.getSavedUserInfo();
+        let params = ["userCode":user.userCode, "token":user.token];
+        if let url = NetWorkUtils.getDpetListUrlStr() {
+            let request = Alamofire.request(.GET, url, parameters: params);
+            print(request);
+            request.responseJSON { response in
+                if let dic = response.result.value as? NSDictionary {
+                    if let data = dic.valueForKey("data") as? NSDictionary {
+                        if let userDepts = data.valueForKey("userDept") as? NSMutableArray {
+                            self.userDepts = userDepts;
+                            self.tableView.reloadData();
                         }
                     }
                 }
             }
         }
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

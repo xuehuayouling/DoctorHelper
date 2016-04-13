@@ -10,7 +10,7 @@ import UIKit
 
 class LoginUserInfoUtils: NSObject {
 
-    class func saveUserInfo(user:UserDTO) -> Void {
+    class func saveUserInfo(user:UserDTO) {
         let userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults();
         userDefaults.setObject(user.mobile, forKey: "logined_user_info_mobile");
         userDefaults.setObject(user.userId, forKey: "logined_user_info_userId");
@@ -24,7 +24,7 @@ class LoginUserInfoUtils: NSObject {
         userDefaults.synchronize();
     }
     
-    class func getSavedUserInfo() -> UserDTO? {
+    class func getSavedUserInfo() -> UserDTO {
         let userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults();
         let dic:NSMutableDictionary = NSMutableDictionary();
         if let value = userDefaults.valueForKey("logined_user_info_mobile") as? String{
@@ -54,7 +54,7 @@ class LoginUserInfoUtils: NSObject {
         if let value = userDefaults.valueForKey("logined_user_info_pwd") as? String{
             dic.setObject(value, forKey: "pwd");
         }
-        return UserDTO.modelObjectWithDictionary(dic);
+        return UserDTO.init(dic: dic);
     }
     
     class func clearSavedUserInfo() -> Void {

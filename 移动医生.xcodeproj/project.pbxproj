@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FE881CBCC69700322B0B /* PatientListViewController.swift */; };
 		1A0633FD1CB497D90072319E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0633FC1CB497D90072319E /* Login.storyboard */; };
+		1A25F6841CBE0EE6001727B9 /* YSQProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25F6831CBE0EE6001727B9 /* YSQProgressHUD.swift */; };
+		1A25F6911CBE0F85001727B9 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25F6901CBE0F85001727B9 /* Define.swift */; };
 		1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11921CBB507D002CE3AC /* UserDTO.swift */; };
 		1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */; };
 		1A8A11991CBB9A4A002CE3AC /* LoginUserInfoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */; };
@@ -168,6 +170,8 @@
 /* Begin PBXFileReference section */
 		1A04FE881CBCC69700322B0B /* PatientListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListViewController.swift; sourceTree = "<group>"; };
 		1A0633FC1CB497D90072319E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		1A25F6831CBE0EE6001727B9 /* YSQProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSQProgressHUD.swift; sourceTree = "<group>"; };
+		1A25F6901CBE0F85001727B9 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		1A8A11921CBB507D002CE3AC /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeptListViewController.swift; sourceTree = "<group>"; };
 		1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserInfoUtils.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				1ADE19951CB3B991002BCA91 /* AppDelegate.swift */,
 				1A9355E31CB781EC00CE7277 /* NetWorkUtils.swift */,
 				1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */,
+				1A25F6901CBE0F85001727B9 /* Define.swift */,
 			);
 			name = other;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 		1A90A6401CBB320B00D90C96 /* 进度条 */ = {
 			isa = PBXGroup;
 			children = (
+				1A25F6831CBE0EE6001727B9 /* YSQProgressHUD.swift */,
 			);
 			name = "进度条";
 			sourceTree = "<group>";
@@ -604,12 +610,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */,
+				1A25F6841CBE0EE6001727B9 /* YSQProgressHUD.swift in Sources */,
 				1AE1CDF61CBC7873001A3D0A /* UserDeptDTO.swift in Sources */,
 				1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */,
 				1AFDDAD71CBB42520046F776 /* LoginViewController.swift in Sources */,
 				1ADE19961CB3B991002BCA91 /* AppDelegate.swift in Sources */,
 				1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */,
 				1A8A11991CBB9A4A002CE3AC /* LoginUserInfoUtils.swift in Sources */,
+				1A25F6911CBE0F85001727B9 /* Define.swift in Sources */,
 				1A9355E41CB781EC00CE7277 /* NetWorkUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
