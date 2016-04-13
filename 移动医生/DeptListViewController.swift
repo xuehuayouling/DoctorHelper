@@ -67,7 +67,7 @@ class DeptListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("deptCell")!;
         if let dic = userDepts![indexPath.row] as? NSDictionary {
-            let userDept = UserDeptDTO.modelObjectWithDictionary(dic);
+            let userDept = UserDeptDTO.init(dic: dic);
             cell.textLabel?.text = userDept.deptName;
             cell.textLabel?.textAlignment = NSTextAlignment.Center;
         }
@@ -81,7 +81,7 @@ class DeptListViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let indexPath = self.tableView.indexPathForSelectedRow {
             if let dic = userDepts![indexPath.row] as? NSDictionary {
-                let userDept = UserDeptDTO.modelObjectWithDictionary(dic);
+                let userDept = UserDeptDTO.init(dic: dic);
                 let patientListCV = segue.destinationViewController as! PatientListViewController;
                 patientListCV.userDept = userDept;
             }

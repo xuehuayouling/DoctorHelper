@@ -20,36 +20,34 @@ class UserDTO: NSObject {
     var sex:String = ""; // "1",
     var pwd:String = ""; // "357ee1b53538667e9311912bb7566e23"
     
-    class func modelObjectWithDictionary(dic:NSDictionary) -> UserDTO {
-        let user = UserDTO();
+    init(dic:NSDictionary) {
         if let value:String = dic.valueForKey("mobile")! as? String {
-            user.mobile = value;
+            mobile = value;
         }
         if let value:String = dic.valueForKey("userId")! as? String {
-            user.userId = value;
+            userId = value;
         }
         if let value:String = dic.valueForKey("userRealName")! as? String {
-            user.userRealName = value;
+            userRealName = value;
         }
         if let value:String = dic.valueForKey("userCode")! as? String {
-            user.userCode = value;
+            userCode = value;
         }
         if let value:String = dic.valueForKey("deptCode")! as? String {
-            user.deptCode = value;
+            deptCode = value;
         }
         if let value:String = dic.valueForKey("loginTime")! as? String {
-            user.loginTime = value;
+            loginTime = value;
         }
         if let value:String = dic.valueForKey("token")! as? String {
-            user.token = value;
+            token = value;
         }
         if let value:String = dic.valueForKey("sex")! as? String {
-            user.sex = value;
+            sex = value;
         }
         if let value:String = dic.valueForKey("pwd")! as? String {
-            user.pwd = value;
+            pwd = value;
         }
-        return user;
     }
     
 }

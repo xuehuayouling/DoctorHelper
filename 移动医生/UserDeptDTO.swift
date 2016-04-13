@@ -17,26 +17,25 @@ class UserDeptDTO: NSObject {
     var userId:String = "";  // "239",
     var deptCode:String = "";// "41"
     
-    class func modelObjectWithDictionary(dic:NSDictionary) -> UserDeptDTO {
-        let userDept = UserDeptDTO();
+    init(dic:NSDictionary) {
         if let value:String = dic.valueForKey("userName")! as? String {
-            userDept.userName = value;
+            userName = value;
         }
         if let value:String = dic.valueForKey("deptName")! as? String {
-            userDept.deptName = value;
+            deptName = value;
         }
         if let value:String = dic.valueForKey("id")! as? String {
-            userDept.id = value;
+            id = value;
         }
         if let value:String = dic.valueForKey("userCode")! as? String {
-            userDept.userCode = value;
+            userCode = value;
         }
         if let value:String = dic.valueForKey("userId")! as? String {
-            userDept.userId = value;
+            userId = value;
         }
         if let value:String = dic.valueForKey("deptCode")! as? String {
-            userDept.deptCode = value;
+            deptCode = value;
         }
-        return userDept;
     }
+    
 }

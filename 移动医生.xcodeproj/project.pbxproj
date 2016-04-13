@@ -23,6 +23,8 @@
 		1ADE19AB1CB3B991002BCA91 /* ____Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE19AA1CB3B991002BCA91 /* ____Tests.swift */; };
 		1ADE19B61CB3B991002BCA91 /* ____UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE19B51CB3B991002BCA91 /* ____UITests.swift */; };
 		1AE1CDF61CBC7873001A3D0A /* UserDeptDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1CDF51CBC7873001A3D0A /* UserDeptDTO.swift */; };
+		1AFB53EB1CBDD7C800618915 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB53E01CBDD7AF00618915 /* XCGLogger.framework */; };
+		1AFB53EC1CBDD7C800618915 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB53E01CBDD7AF00618915 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AFDDAD71CBB42520046F776 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDDAD61CBB42520046F776 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,55 @@
 			remoteGlobalIDString = 1ADE19911CB3B991002BCA91;
 			remoteInfo = "移动医生";
 		};
+		1AFB53DF1CBDD7AF00618915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE4519D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
+		1AFB53E11CBDD7AF00618915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 554DF41719D76FE7005708BE;
+			remoteInfo = "XCGLogger (OS X)";
+		};
+		1AFB53E31CBDD7AF00618915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70CB94201B99E728007802FF;
+			remoteInfo = "XCGLogger (watchOS)";
+		};
+		1AFB53E51CBDD7AF00618915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5515A3DF1BA119FA0047BA31;
+			remoteInfo = "XCGLogger (tvOS)";
+		};
+		1AFB53E71CBDD7AF00618915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE5019D76F280068C3A7;
+			remoteInfo = "XCGLoggerTests (iOS)";
+		};
+		1AFB53E91CBDD7AF00618915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55BB1F011B79DC7500709779;
+			remoteInfo = "XCGLoggerTests (OS X)";
+		};
+		1AFB53ED1CBDD7C800618915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 55E3EE4419D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +158,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1A9355DD1CB77F3200CE7277 /* Alamofire.framework in Embed Frameworks */,
+				1AFB53EC1CBDD7C800618915 /* XCGLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +187,7 @@
 		1ADE19B51CB3B991002BCA91 /* ____UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "____UITests.swift"; sourceTree = "<group>"; };
 		1ADE19B71CB3B991002BCA91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE1CDF51CBC7873001A3D0A /* UserDeptDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDeptDTO.swift; sourceTree = "<group>"; };
+		1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = "../../Documents/work/资源/第三方框架/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj"; sourceTree = "<group>"; };
 		1AFDDAD61CBB42520046F776 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A9355DC1CB77F3200CE7277 /* Alamofire.framework in Frameworks */,
+				1AFB53EB1CBDD7C800618915 /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +298,7 @@
 		1ADE19891CB3B991002BCA91 = {
 			isa = PBXGroup;
 			children = (
+				1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */,
 				1A9355C41CB77EA000CE7277 /* Alamofire.xcodeproj */,
 				1ADE19941CB3B991002BCA91 /* 移动医生 */,
 				1ADE19A91CB3B991002BCA91 /* 移动医生Tests */,
@@ -294,6 +349,19 @@
 			path = "移动医生UITests";
 			sourceTree = "<group>";
 		};
+		1AFB53D11CBDD7AF00618915 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AFB53E01CBDD7AF00618915 /* XCGLogger.framework */,
+				1AFB53E21CBDD7AF00618915 /* XCGLogger.framework */,
+				1AFB53E41CBDD7AF00618915 /* XCGLogger.framework */,
+				1AFB53E61CBDD7AF00618915 /* XCGLogger.framework */,
+				1AFB53E81CBDD7AF00618915 /* XCGLoggerTests (iOS).xctest */,
+				1AFB53EA1CBDD7AF00618915 /* XCGLoggerTests (OS X).xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,6 +378,7 @@
 			);
 			dependencies = (
 				1A9355DF1CB77F3200CE7277 /* PBXTargetDependency */,
+				1AFB53EE1CBDD7C800618915 /* PBXTargetDependency */,
 			);
 			name = "移动医生";
 			productName = "移动医生";
@@ -392,6 +461,10 @@
 					ProductGroup = 1A9355C51CB77EA000CE7277 /* Products */;
 					ProjectRef = 1A9355C41CB77EA000CE7277 /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = 1AFB53D11CBDD7AF00618915 /* Products */;
+					ProjectRef = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -450,6 +523,48 @@
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
 			remoteRef = 1A9355DA1CB77EA000CE7277 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1AFB53E01CBDD7AF00618915 /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = 1AFB53DF1CBDD7AF00618915 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1AFB53E21CBDD7AF00618915 /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = 1AFB53E11CBDD7AF00618915 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1AFB53E41CBDD7AF00618915 /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = 1AFB53E31CBDD7AF00618915 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1AFB53E61CBDD7AF00618915 /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = 1AFB53E51CBDD7AF00618915 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1AFB53E81CBDD7AF00618915 /* XCGLoggerTests (iOS).xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "XCGLoggerTests (iOS).xctest";
+			remoteRef = 1AFB53E71CBDD7AF00618915 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1AFB53EA1CBDD7AF00618915 /* XCGLoggerTests (OS X).xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "XCGLoggerTests (OS X).xctest";
+			remoteRef = 1AFB53E91CBDD7AF00618915 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -532,6 +647,11 @@
 			isa = PBXTargetDependency;
 			target = 1ADE19911CB3B991002BCA91 /* 移动医生 */;
 			targetProxy = 1ADE19B21CB3B991002BCA91 /* PBXContainerItemProxy */;
+		};
+		1AFB53EE1CBDD7C800618915 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XCGLogger (iOS)";
+			targetProxy = 1AFB53ED1CBDD7C800618915 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

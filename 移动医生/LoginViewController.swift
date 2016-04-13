@@ -59,12 +59,13 @@ class LoginViewController: UIViewController {
                     changeRememberLoginMsg();
                     let params = ["userCode":userName, "pwd":passWord];
                     let request = Alamofire.request(.GET, url, parameters: params);
-                    print(request);
+                    log.info(request.description);
                     request.responseJSON { response in
+                        log.debug(response.result.value?.description);
                         if let dic:NSDictionary = response.result.value as? NSDictionary {
                             if let data:NSDictionary = dic.valueForKey("data") as? NSDictionary {
                                 if let user:NSDictionary = data.valueForKey("user") as? NSDictionary {
-                                    let userDTO:UserDTO = UserDTO.modelObjectWithDictionary(user);
+                                    let userDTO:UserDTO = UserDTO.init(dic: user);
                                     LoginUserInfoUtils.saveUserInfo(userDTO);
                                     
                                     let sb = UIStoryboard(name:"Main", bundle: nil);
