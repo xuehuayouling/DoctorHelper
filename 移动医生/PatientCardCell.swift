@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebImage
 
 class PatientCardCell: UICollectionViewCell {
 
@@ -38,14 +39,18 @@ class PatientCardCell: UICollectionViewCell {
         hospitalIDLabel.text = patient.inpatientId;
         diagnosisLabel.text = patient.result;
         configSexImageView(patient.sex);
-//        [self configIconImageVIew:nil];
+        configPhotImageView("");
     }
     
-    func configSexImageView(sex: String) {
+    private func configSexImageView(sex: String) {
         if sex == "1" {
             patientSexIconImageView.image = UIImage.init(named: "患者列表-3");
         } else if sex == "2" {
             patientSexIconImageView.image = UIImage.init(named: "患者列表-4");
         }
+    }
+    
+    private func configPhotImageView(url: String) {
+        patientIconImageView.sd_setImageWithURL(NSURL.init(string: url), placeholderImage: UIImage.init(named: "患者列表-3"));
     }
 }

@@ -242,7 +242,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.png" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-X8-aW3" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-X8-aW3" userLabel="icon">
                                                     <rect key="frame" x="13" y="8" width="23" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="23" id="44D-e1-Y02"/>
@@ -258,14 +258,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7p-8w-H8K" userLabel="详细信息">
                                                     <rect key="frame" x="0.0" y="31" width="220" height="111"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="主背景图片" translatesAutoresizingMaskIntoConstraints="NO" id="MDB-kS-c0b" userLabel="患者头像">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MDB-kS-c0b" userLabel="患者头像">
                                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="aTa-s2-sq6"/>
                                                                 <constraint firstAttribute="height" constant="50" id="pdi-8S-VOl"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle-mask.png" translatesAutoresizingMaskIntoConstraints="NO" id="8rJ-hf-Xey" userLabel="性别图标">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8rJ-hf-Xey" userLabel="性别图标">
                                                             <rect key="frame" x="35" y="35" width="29" height="29"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="29" id="I4U-fT-WcA"/>
@@ -431,9 +431,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="angle-mask.png" width="100" height="100"/>
-        <image name="info.png" width="28" height="28"/>
-        <image name="主背景图片" width="2048" height="1536"/>
         <image name="患者列表-1" width="1024" height="64"/>
         <image name="患者列表-2" width="19" height="18"/>
         <image name="患者列表-3" width="39" height="42"/>

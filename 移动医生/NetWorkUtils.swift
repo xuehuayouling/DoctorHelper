@@ -72,6 +72,15 @@ class NetWorkUtils: NSObject {
     }
     
     /**
+     获取图片服务器的基本地址
+     
+     - returns: 返回图片服务器的基本地址
+     */
+    class func getImageBaseUrl() -> String? {
+        return nil;
+    }
+    
+    /**
      网络访问接口
      
      - parameter method:            method
@@ -81,7 +90,7 @@ class NetWorkUtils: NSObject {
      */
     class func requestForJson(method: Alamofire.Method = .GET, url: String, parameters: [String: AnyObject]? = nil, completionHandler: Dictionary<String, AnyObject> -> Void) {
         let request = Alamofire.request(method, url, parameters: parameters);
-        log.info(request.description);
+        log.info(request.debugDescription);
         request.responseJSON { response in
             if response.result.isSuccess {
                 if let dic:Dictionary<String, AnyObject> = response.result.value as? Dictionary {
@@ -109,4 +118,9 @@ class NetWorkUtils: NSObject {
         }
     }
     
+    class func requestForImage(method: Alamofire.Method = .GET, url: String, parameters: [String: AnyObject]? = nil) {
+        let request = Alamofire.request(method, url, parameters: parameters);
+        log.info(request.debugDescription);
+        request.validate()
+    }
 }
