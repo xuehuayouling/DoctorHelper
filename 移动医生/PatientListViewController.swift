@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertViewDelegate {
+class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var patientList:Array<PatientDTO> = Array();
     
@@ -17,6 +17,7 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     @IBOutlet weak var correctDeptButton: UIButton!
     @IBOutlet weak var doctorNameLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var patientsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         correctDeptButton.setTitle(userDept?.deptName, forState: UIControlState.Normal);
@@ -76,6 +77,7 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
                     for dic:Dictionary<String,AnyObject> in patientList {
                         self.patientList.append(PatientDTO.init(dic: dic));
                     }
+                    self.patientsCollectionView.reloadData();
                     log.debug("病人数量" + self.patientList.count.description);
                 } else {
                     SVProgressHUD.showErrorWithStatus("服务器解析数据出错，请联系管理员");
@@ -87,4 +89,17 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
         }
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1;
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return patientList.count;
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let patientCardCell:PatientCardCell = collectionView.dequeueReusableCellWithReuseIdentifier("patientCollectionCell", forIndexPath: indexPath) as! PatientCardCell;
+        patientCardCell.loadData(self.patientList[indexPath.row]);
+        return patientCardCell;
+    }
 }

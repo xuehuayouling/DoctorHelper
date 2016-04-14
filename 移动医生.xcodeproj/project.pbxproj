@@ -13,6 +13,7 @@
 		1A214EAF1CBF43A300A59651 /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A214EAB1CBF439400A59651 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A25F6911CBE0F85001727B9 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25F6901CBE0F85001727B9 /* Define.swift */; };
 		1A42198C1CBF84A20058181B /* PatientDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42198B1CBF84A20058181B /* PatientDTO.swift */; };
+		1A42199A1CBF92800058181B /* PatientCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4219991CBF92800058181B /* PatientCardCell.swift */; };
 		1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11921CBB507D002CE3AC /* UserDTO.swift */; };
 		1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */; };
 		1A8A11991CBB9A4A002CE3AC /* LoginUserInfoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */; };
@@ -197,6 +198,7 @@
 		1A214EA51CBF439400A59651 /* SVProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SVProgressHUD.xcodeproj; path = "../../Documents/work/资源/第三方框架/SVProgressHUD/SVProgressHUD.xcodeproj"; sourceTree = "<group>"; };
 		1A25F6901CBE0F85001727B9 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		1A42198B1CBF84A20058181B /* PatientDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDTO.swift; sourceTree = "<group>"; };
+		1A4219991CBF92800058181B /* PatientCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientCardCell.swift; sourceTree = "<group>"; };
 		1A8A11921CBB507D002CE3AC /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeptListViewController.swift; sourceTree = "<group>"; };
 		1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserInfoUtils.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				1ADE199E1CB3B991002BCA91 /* LaunchScreen.storyboard */,
 				1A0633FC1CB497D90072319E /* Login.storyboard */,
 				1A8A119A1CBBA38F002CE3AC /* Main.storyboard */,
+				1A4219991CBF92800058181B /* PatientCardCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */,
 				1AE1CDF61CBC7873001A3D0A /* UserDeptDTO.swift in Sources */,
 				1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */,
+				1A42199A1CBF92800058181B /* PatientCardCell.swift in Sources */,
 				1AFDDAD71CBB42520046F776 /* LoginViewController.swift in Sources */,
 				1ADE19961CB3B991002BCA91 /* AppDelegate.swift in Sources */,
 				1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */,

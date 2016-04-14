@@ -38,6 +38,7 @@ class PatientDTO: NSObject {
     let gcDoctorName:String; // "应志伟",
     let address:String; // "明州医院",
     let zgDoctor:String; // "061025001"
+    let result:String; // "多处烧伤"
     
     init(dic:Dictionary<String,AnyObject>) {
         zgDoctorName = (dic["zgDoctorName"] as? String) == nil ? "" : (dic["zgDoctorName"] as? String)!;
@@ -68,5 +69,6 @@ class PatientDTO: NSObject {
         gcDoctorName = (dic["gcDoctorName"] as? String) == nil ? "" : (dic["gcDoctorName"] as? String)!;
         address = (dic["address"] as? String) == nil ? "" : (dic["address"] as? String)!;
         zgDoctor = (dic["zgDoctor"] as? String) == nil ? "" : (dic["zgDoctor"] as? String)!;
+        result = (dic["result"] as? String) == nil ? "" : (dic["result"] as? String)!;
     }
 }
