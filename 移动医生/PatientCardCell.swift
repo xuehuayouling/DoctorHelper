@@ -44,13 +44,15 @@ class PatientCardCell: UICollectionViewCell {
     
     private func configSexImageView(sex: String) {
         if sex == "1" {
-            patientSexIconImageView.image = UIImage.init(named: "患者列表-3");
-        } else if sex == "2" {
             patientSexIconImageView.image = UIImage.init(named: "患者列表-4");
+        } else if sex == "2" {
+            patientSexIconImageView.image = UIImage.init(named: "患者列表-5");
         }
     }
     
     private func configPhotImageView(url: String) {
-        patientIconImageView.sd_setImageWithURL(NSURL.init(string: url), placeholderImage: UIImage.init(named: "患者列表-3"));
+        patientIconImageView.layer.masksToBounds = true;
+        patientIconImageView.layer.cornerRadius = patientIconImageView.bounds.size.width*0.5;
+        patientIconImageView.sd_setImageWithURL(NSURL.init(string: url), placeholderImage: UIImage.init(named: "登录页面-1"));
     }
 }

@@ -20,7 +20,7 @@ class UserDTO: NSObject {
     let sex:String; // "1",
     let pwd:String; // "357ee1b53538667e9311912bb7566e23"
     
-    init(dic:Dictionary<String,AnyObject>) {
+    init(dic:Dictionary<String, AnyObject>) {
         mobile = (dic["mobile"] as? String) == nil ? "" : (dic["mobile"] as? String)!;
         userId = (dic["userId"] as? String) == nil ? "" : (dic["userId"] as? String)!;
         userRealName = (dic["userRealName"] as? String) == nil ? "" : (dic["userRealName"] as? String)!;

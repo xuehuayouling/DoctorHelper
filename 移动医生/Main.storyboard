@@ -75,6 +75,9 @@
                                     </constraint>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="主背景图片" translatesAutoresizingMaskIntoConstraints="NO" id="URz-LD-bkZ">
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ML-gU-Zjv">
                                 <rect key="frame" x="0.0" y="20" width="600" height="40"/>
                                 <subviews>
@@ -228,6 +231,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KQh-ER-gCG">
                                 <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v2z-1g-qhu">
                                     <size key="itemSize" width="220" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -242,7 +246,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-X8-aW3" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="患者列表-6" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-X8-aW3" userLabel="icon">
                                                     <rect key="frame" x="13" y="8" width="23" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="23" id="44D-e1-Y02"/>
@@ -250,13 +254,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1t-KZ-UBu" userLabel="床号">
-                                                    <rect key="frame" x="46" y="12" width="156" height="23"/>
+                                                    <rect key="frame" x="46" y="7.5" width="156" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7p-8w-H8K" userLabel="详细信息">
-                                                    <rect key="frame" x="0.0" y="31" width="220" height="111"/>
+                                                    <rect key="frame" x="0.0" y="33" width="220" height="109"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MDB-kS-c0b" userLabel="患者头像">
                                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
@@ -310,7 +314,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="诊断：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-mU-7SF" userLabel="诊断">
-                                                            <rect key="frame" x="8" y="90" width="52" height="16"/>
+                                                            <rect key="frame" x="8" y="88" width="52" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -322,7 +326,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多处烧伤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwa-PY-W8y" userLabel="诊断的值">
-                                                            <rect key="frame" x="65" y="90" width="150" height="16"/>
+                                                            <rect key="frame" x="65" y="88" width="150" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -367,12 +371,12 @@
                                             <constraint firstItem="g7p-8w-H8K" firstAttribute="width" secondItem="rFS-MT-u1W" secondAttribute="width" id="4qW-z6-DJu"/>
                                             <constraint firstItem="Knj-X8-aW3" firstAttribute="leading" secondItem="rFS-MT-u1W" secondAttribute="leadingMargin" constant="5" id="78f-3D-Taw"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="g7p-8w-H8K" secondAttribute="bottom" id="A1J-Qn-JPb"/>
-                                            <constraint firstItem="g7p-8w-H8K" firstAttribute="top" secondItem="Knj-X8-aW3" secondAttribute="bottom" id="ATe-Ll-RcV"/>
+                                            <constraint firstItem="g7p-8w-H8K" firstAttribute="top" secondItem="Knj-X8-aW3" secondAttribute="bottom" constant="2" id="ATe-Ll-RcV"/>
                                             <constraint firstItem="i1t-KZ-UBu" firstAttribute="leading" secondItem="Knj-X8-aW3" secondAttribute="trailing" constant="10" id="Mfb-KL-OMT"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="i1t-KZ-UBu" secondAttribute="trailing" constant="10" id="Pmz-3g-7cY"/>
                                             <constraint firstItem="g7p-8w-H8K" firstAttribute="centerX" secondItem="rFS-MT-u1W" secondAttribute="centerX" id="bFx-TC-ZDj"/>
                                             <constraint firstItem="Knj-X8-aW3" firstAttribute="top" secondItem="rFS-MT-u1W" secondAttribute="topMargin" id="f1l-Ib-CxE"/>
-                                            <constraint firstItem="i1t-KZ-UBu" firstAttribute="baseline" secondItem="Knj-X8-aW3" secondAttribute="baseline" id="h3O-Xl-FeD"/>
+                                            <constraint firstItem="i1t-KZ-UBu" firstAttribute="baseline" secondItem="Knj-X8-aW3" secondAttribute="baseline" constant="-5" id="h3O-Xl-FeD"/>
                                             <constraint firstItem="i1t-KZ-UBu" firstAttribute="height" secondItem="Knj-X8-aW3" secondAttribute="height" id="ldy-xj-wKE"/>
                                         </constraints>
                                         <connections>
@@ -397,13 +401,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7bR-iW-scv" firstAttribute="width" secondItem="QAw-Mc-Jnq" secondAttribute="width" id="0QC-cC-qAD"/>
+                            <constraint firstItem="REH-Ff-Y3g" firstAttribute="top" secondItem="URz-LD-bkZ" secondAttribute="bottom" id="5Tj-kB-HfH"/>
+                            <constraint firstItem="URz-LD-bkZ" firstAttribute="top" secondItem="7bR-iW-scv" secondAttribute="bottom" id="8eT-4o-rga"/>
                             <constraint firstItem="KQh-ER-gCG" firstAttribute="top" secondItem="8ML-gU-Zjv" secondAttribute="bottom" id="AaC-MX-aph"/>
                             <constraint firstItem="7bR-iW-scv" firstAttribute="top" secondItem="BVl-lr-xzq" secondAttribute="bottom" constant="-24" id="BGI-xt-S1I"/>
+                            <constraint firstItem="URz-LD-bkZ" firstAttribute="centerX" secondItem="QAw-Mc-Jnq" secondAttribute="centerX" id="C5D-xi-50H"/>
                             <constraint firstItem="7bR-iW-scv" firstAttribute="centerX" secondItem="QAw-Mc-Jnq" secondAttribute="centerX" id="IiM-eE-2Rg"/>
                             <constraint firstItem="8ML-gU-Zjv" firstAttribute="centerX" secondItem="QAw-Mc-Jnq" secondAttribute="centerX" id="SqX-mo-qcR"/>
                             <constraint firstItem="REH-Ff-Y3g" firstAttribute="top" secondItem="KQh-ER-gCG" secondAttribute="bottom" id="Wc9-1g-8Hm"/>
                             <constraint firstItem="8ML-gU-Zjv" firstAttribute="width" secondItem="QAw-Mc-Jnq" secondAttribute="width" id="jaB-23-Gec"/>
                             <constraint firstItem="KQh-ER-gCG" firstAttribute="centerX" secondItem="QAw-Mc-Jnq" secondAttribute="centerX" id="liu-XJ-W2Q"/>
+                            <constraint firstItem="URz-LD-bkZ" firstAttribute="width" secondItem="QAw-Mc-Jnq" secondAttribute="width" id="tIa-q4-pWW"/>
                             <constraint firstItem="KQh-ER-gCG" firstAttribute="width" secondItem="QAw-Mc-Jnq" secondAttribute="width" id="xeP-PM-C3Z"/>
                             <constraint firstItem="8ML-gU-Zjv" firstAttribute="top" secondItem="BVl-lr-xzq" secondAttribute="bottom" id="yg8-1e-iEU"/>
                         </constraints>
@@ -431,8 +439,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="主背景图片" width="2048" height="1536"/>
         <image name="患者列表-1" width="1024" height="64"/>
         <image name="患者列表-2" width="19" height="18"/>
         <image name="患者列表-3" width="39" height="42"/>
+        <image name="患者列表-6" width="46" height="40"/>
     </resources>
 </document>
