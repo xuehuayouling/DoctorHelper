@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FE881CBCC69700322B0B /* PatientListViewController.swift */; };
 		1A0633FD1CB497D90072319E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0633FC1CB497D90072319E /* Login.storyboard */; };
-		1A25F6841CBE0EE6001727B9 /* YSQProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25F6831CBE0EE6001727B9 /* YSQProgressHUD.swift */; };
+		1A214EAE1CBF43A300A59651 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A214EAB1CBF439400A59651 /* SVProgressHUD.framework */; };
+		1A214EAF1CBF43A300A59651 /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A214EAB1CBF439400A59651 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A25F6911CBE0F85001727B9 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25F6901CBE0F85001727B9 /* Define.swift */; };
 		1A8A11931CBB507D002CE3AC /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11921CBB507D002CE3AC /* UserDTO.swift */; };
 		1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */; };
@@ -31,6 +32,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A214EAA1CBF439400A59651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A214EA51CBF439400A59651 /* SVProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A9D7DD81AB345980039B273;
+			remoteInfo = "SVProgressHUD-Framework";
+		};
+		1A214EAC1CBF439400A59651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A214EA51CBF439400A59651 /* SVProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65F021FC15C857EF0030BBEF;
+			remoteInfo = SVProgressHUD;
+		};
+		1A214EB01CBF43A300A59651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A214EA51CBF439400A59651 /* SVProgressHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A9D7DD71AB345980039B273;
+			remoteInfo = "SVProgressHUD-Framework";
+		};
 		1A9355CE1CB77EA000CE7277 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1A9355C41CB77EA000CE7277 /* Alamofire.xcodeproj */;
@@ -159,6 +181,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1A214EAF1CBF43A300A59651 /* SVProgressHUD.framework in Embed Frameworks */,
 				1A9355DD1CB77F3200CE7277 /* Alamofire.framework in Embed Frameworks */,
 				1AFB53EC1CBDD7C800618915 /* XCGLogger.framework in Embed Frameworks */,
 			);
@@ -170,7 +193,7 @@
 /* Begin PBXFileReference section */
 		1A04FE881CBCC69700322B0B /* PatientListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientListViewController.swift; sourceTree = "<group>"; };
 		1A0633FC1CB497D90072319E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		1A25F6831CBE0EE6001727B9 /* YSQProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSQProgressHUD.swift; sourceTree = "<group>"; };
+		1A214EA51CBF439400A59651 /* SVProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SVProgressHUD.xcodeproj; path = "../../Documents/work/资源/第三方框架/SVProgressHUD/SVProgressHUD.xcodeproj"; sourceTree = "<group>"; };
 		1A25F6901CBE0F85001727B9 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		1A8A11921CBB507D002CE3AC /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		1A8A11961CBB946B002CE3AC /* DeptListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeptListViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A214EAE1CBF43A300A59651 /* SVProgressHUD.framework in Frameworks */,
 				1A9355DC1CB77F3200CE7277 /* Alamofire.framework in Frameworks */,
 				1AFB53EB1CBDD7C800618915 /* XCGLogger.framework in Frameworks */,
 			);
@@ -271,20 +295,20 @@
 			name = other;
 			sourceTree = "<group>";
 		};
+		1A214EA61CBF439400A59651 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A214EAB1CBF439400A59651 /* SVProgressHUD.framework */,
+				1A214EAD1CBF439400A59651 /* libSVProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1A90A6391CBB320100D90C96 /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
-				1A90A6401CBB320B00D90C96 /* 进度条 */,
 			);
 			name = "第三方";
-			sourceTree = "<group>";
-		};
-		1A90A6401CBB320B00D90C96 /* 进度条 */ = {
-			isa = PBXGroup;
-			children = (
-				1A25F6831CBE0EE6001727B9 /* YSQProgressHUD.swift */,
-			);
-			name = "进度条";
 			sourceTree = "<group>";
 		};
 		1A9355C51CB77EA000CE7277 /* Products */ = {
@@ -304,6 +328,7 @@
 		1ADE19891CB3B991002BCA91 = {
 			isa = PBXGroup;
 			children = (
+				1A214EA51CBF439400A59651 /* SVProgressHUD.xcodeproj */,
 				1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */,
 				1A9355C41CB77EA000CE7277 /* Alamofire.xcodeproj */,
 				1ADE19941CB3B991002BCA91 /* 移动医生 */,
@@ -385,6 +410,7 @@
 			dependencies = (
 				1A9355DF1CB77F3200CE7277 /* PBXTargetDependency */,
 				1AFB53EE1CBDD7C800618915 /* PBXTargetDependency */,
+				1A214EB11CBF43A300A59651 /* PBXTargetDependency */,
 			);
 			name = "移动医生";
 			productName = "移动医生";
@@ -468,6 +494,10 @@
 					ProjectRef = 1A9355C41CB77EA000CE7277 /* Alamofire.xcodeproj */;
 				},
 				{
+					ProductGroup = 1A214EA61CBF439400A59651 /* Products */;
+					ProjectRef = 1A214EA51CBF439400A59651 /* SVProgressHUD.xcodeproj */;
+				},
+				{
 					ProductGroup = 1AFB53D11CBDD7AF00618915 /* Products */;
 					ProjectRef = 1AFB53D01CBDD7AF00618915 /* XCGLogger.xcodeproj */;
 				},
@@ -482,6 +512,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1A214EAB1CBF439400A59651 /* SVProgressHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SVProgressHUD.framework;
+			remoteRef = 1A214EAA1CBF439400A59651 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1A214EAD1CBF439400A59651 /* libSVProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSVProgressHUD.a;
+			remoteRef = 1A214EAC1CBF439400A59651 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		1A9355CF1CB77EA000CE7277 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -610,7 +654,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */,
-				1A25F6841CBE0EE6001727B9 /* YSQProgressHUD.swift in Sources */,
 				1AE1CDF61CBC7873001A3D0A /* UserDeptDTO.swift in Sources */,
 				1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */,
 				1AFDDAD71CBB42520046F776 /* LoginViewController.swift in Sources */,
@@ -641,6 +684,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A214EB11CBF43A300A59651 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SVProgressHUD-Framework";
+			targetProxy = 1A214EB01CBF43A300A59651 /* PBXContainerItemProxy */;
+		};
 		1A9355DF1CB77F3200CE7277 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";

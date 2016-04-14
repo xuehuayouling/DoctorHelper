@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -60,9 +61,9 @@ class LoginViewController: UIViewController {
                     let params = ["userCode":userName, "pwd":passWord];
                     let request = Alamofire.request(.GET, url, parameters: params);
                     log.info(request.description);
-                    YSQProgressHUD.show(nil);
+                    SVProgressHUD.show();
                     request.responseJSON { response in
-                        YSQProgressHUD.dismiss();
+                        SVProgressHUD.dismiss();
                         log.debug(response.result.value?.description);
                         if let dic:NSDictionary = response.result.value as? NSDictionary {
                             if let data:NSDictionary = dic.valueForKey("data") as? NSDictionary {
