@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertViewDelegate {
 
@@ -16,7 +17,6 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         correctDeptButton.setTitle(userDept?.deptName, forState: UIControlState.Normal);
         doctorNameLabel.text = userDept?.userName;
         
@@ -36,7 +36,13 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        self.navigationController?.navigationBarHidden = true;
+        if userDept == nil {
+            SVProgressHUD.showErrorWithStatus("系统错误，没有选择科室！");
+            self.navigationController?.popViewControllerAnimated(animated);
+        } else {
+            self.navigationController?.navigationBarHidden = true;
+        }
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -54,6 +60,10 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
         alert.addAction(confirmAction);
         alert.addAction(cancelAction);
         self.presentViewController(alert, animated: true, completion: nil);
+    }
+    
+    private func getPatientList() {
+        
     }
     
 }

@@ -31,11 +31,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="deptCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="deptCell" id="0Q7-PX-N6a">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="deptCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="deptCell" id="0Q7-PX-N6a">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Q7-PX-N6a" id="Vvi-DX-bwX">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -228,17 +228,17 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KQh-ER-gCG">
                                 <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v2z-1g-qhu">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="patientCollectionCell" id="rFS-MT-u1W">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="10" y="10" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>

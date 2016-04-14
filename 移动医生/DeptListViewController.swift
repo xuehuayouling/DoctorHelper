@@ -12,7 +12,7 @@ import SVProgressHUD
 
 class DeptListViewController: UITableViewController {
     
-    var userDepts:NSMutableArray? = nil;
+    var userDepts:Array<UserDeptDTO> = Array();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,26 +26,27 @@ class DeptListViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         self.tableView.tableFooterView = UIView.init();
-//        self.navigationController?.navigationBarHidden = true;
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated);
-//        self.navigationController?.navigationBarHidden = false;
     }
     
-    func getDeptList() -> Void {
+    private func getDeptList() -> Void {
         let user:UserDTO = LoginUserInfoUtils.getSavedUserInfo();
         let params = ["userCode":user.userCode, "token":user.token];
         if let url = NetWorkUtils.getDpetListUrlStr() {
             SVProgressHUD.show();
             NetWorkUtils.requestForJson(url: url, parameters: params) { dictionary in
-                if let data = dictionary["data"] as? Dictionary<String, AnyObject>, let userDepts = data["userDept"] as? NSMutableArray {
+                if let data = dictionary["data"] as? Dictionary<String, AnyObject>, let userDepts = data["userDept"] as? Array<Dictionary<String,AnyObject>> {
                     SVProgressHUD.dismiss();
-                    self.userDepts = userDepts;
+                    self.userDepts.removeAll();
+                    for dic:Dictionary<String,AnyObject> in userDepts {
+                        self.userDepts.append(UserDeptDTO.init(dic: dic));
+                    }
                     self.tableView.reloadData();
                 } else {
-                    SVProgressHUD.showErrorWithStatus("服务器出错，请联系管理员");
+                    SVProgressHUD.showErrorWithStatus("服务器解析数据出错，请联系管理员");
                     log.error(dictionary.debugDescription);
                 }
             }
@@ -53,7 +54,6 @@ class DeptListViewController: UITableViewController {
         } else {
             SVProgressHUD.showErrorWithStatus("无法获取科室列表url，请联系开发人员");
         }
-        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,33 +61,23 @@ class DeptListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = userDepts?.count {
-            return count;
-        }
-        return 0;
+        return userDepts.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("deptCell")!;
-        if let dic = userDepts![indexPath.row] as? Dictionary<String, AnyObject> {
-            let userDept = UserDeptDTO.init(dic: dic);
-            cell.textLabel?.text = userDept.deptName;
-            cell.textLabel?.textAlignment = NSTextAlignment.Center;
-        }
+        let userDept = userDepts[indexPath.row]
+        cell.textLabel?.text = userDept.deptName == "" ? "测试科室" : userDept.deptName;
+        cell.textLabel?.textAlignment = NSTextAlignment.Center;
         return cell;
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let indexPath = self.tableView.indexPathForSelectedRow {
-            if let dic = userDepts![indexPath.row] as? Dictionary<String, AnyObject> {
-                let userDept = UserDeptDTO.init(dic: dic);
-                let patientListCV = segue.destinationViewController as! PatientListViewController;
-                patientListCV.userDept = userDept;
-            }
+            let userDept = userDepts[indexPath.row]
+            let patientListCV = segue.destinationViewController as! PatientListViewController;
+            patientListCV.userDept = userDept;
+            
         }
         
     }

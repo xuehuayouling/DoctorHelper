@@ -12,38 +12,73 @@ import SVProgressHUD
 
 class NetWorkUtils: NSObject {
 
-    class func getBaseUrlStr() -> String? {
-        let plistPath:String = NSBundle.mainBundle().pathForResource("constants", ofType: "plist")!;
-        let dic:NSMutableDictionary = NSMutableDictionary(contentsOfFile: plistPath)!;
-        if let value:String = dic.valueForKey("baseUrl") as? String {
+    /**
+     根据key获取constants.plist中的值
+     
+     - parameter key: key
+     
+     - returns: 返回Optional的值
+     */
+    private class func getValueForKeyFromPlist(key: String) -> String? {
+        if let plistPath = NSBundle.mainBundle().pathForResource("constants", ofType: "plist"), let dic:NSDictionary = NSDictionary(contentsOfFile: plistPath), let value:String = dic.valueForKey(key) as? String {
             return value;
         }
         return nil;
     }
     
+    /**
+     获取服务器基本地址
+     
+     - returns: 服务器基本地址
+     */
+    class func getBaseUrlStr() -> String? {
+        return getValueForKeyFromPlist("baseUrl");
+    }
+    
+    /**
+     获取登录接口地址
+     
+     - returns: 返回接口登录地址
+     */
     class func getLoginUrlStr() -> String? {
-        if let baseUrl:String = getBaseUrlStr() {
-            let plistPath:String = NSBundle.mainBundle().pathForResource("constants", ofType: "plist")!;
-            let dic:NSMutableDictionary = NSMutableDictionary(contentsOfFile: plistPath)!;
-            if let value:String = dic.valueForKey("loginKey") as? String {
-                return baseUrl + "/" + value;
-            }
+        if let baseUrl = getBaseUrlStr(), let loginKey = getValueForKeyFromPlist("loginKey") {
+            return baseUrl + "/" + loginKey;
         }
         return nil;
     }
     
+    /**
+     获取部门列表地址
+     
+     - returns: 返回部门列表地址
+     */
     class func getDpetListUrlStr() -> String? {
-        if let baseUrl:String = getBaseUrlStr() {
-            let plistPath:String = NSBundle.mainBundle().pathForResource("constants", ofType: "plist")!;
-            let dic:NSMutableDictionary = NSMutableDictionary(contentsOfFile: plistPath)!;
-            if let value:String = dic.valueForKey("deptListKey") as? String {
-                return baseUrl + "/" + value;
-            }
+        if let baseUrl = getBaseUrlStr(), let deptListKey = getValueForKeyFromPlist("deptListKey") {
+            return baseUrl + "/" + deptListKey;
         }
         return nil;
     }
     
+    /**
+     获取通过部门id取病人列表的地址
+     
+     - returns: 返回通过部门id取病人列表的地址
+     */
+    class func getPatientListByDeptCodeUrlStr() -> String? {
+        if let baseUrl = getBaseUrlStr(), let patientListByDeptCodeKey = getValueForKeyFromPlist("patientListByDeptCodeKey") {
+            return baseUrl + "/" + patientListByDeptCodeKey;
+        }
+        return nil;
+    }
     
+    /**
+     网络访问接口
+     
+     - parameter method:            method
+     - parameter url:               url
+     - parameter parameters:        参数
+     - parameter completionHandler: 回调接口
+     */
     class func requestForJson(method: Alamofire.Method = .GET, url: String, parameters: [String: AnyObject]? = nil, completionHandler: Dictionary<String, AnyObject> -> Void) {
         let request = Alamofire.request(method, url, parameters: parameters);
         log.info(request.description);
