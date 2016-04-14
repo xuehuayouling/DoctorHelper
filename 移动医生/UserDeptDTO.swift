@@ -10,20 +10,20 @@ import UIKit
 
 class UserDeptDTO: NSObject {
 
-    let userName:String?;// "宁武云",
-    let deptName:String?;// "儿科",
-    let id:String?;      // "41_239",
-    let userCode:String?;// "070807005",
-    let userId:String?;  // "239",
-    let deptCode:String?;// "41"
+    let userName:String;// "宁武云",
+    let deptName:String;// "儿科",
+    let id:String;      // "41_239",
+    let userCode:String;// "070807005",
+    let userId:String;  // "239",
+    let deptCode:String;// "41"
     
-    init(dic:NSDictionary) {
-        userName = dic.valueForKey("userName") as? String;
-        deptName = dic.valueForKey("deptName") as? String;
-        id = dic.valueForKey("id") as? String;
-        userCode = dic.valueForKey("userCode") as? String;
-        userId = dic.valueForKey("userId") as? String;
-        deptCode = dic.valueForKey("deptCode") as? String;
+    init(dic:Dictionary<String,AnyObject>) {
+        userName = (dic["userName"] as? String) == nil ? "" : (dic["userName"] as? String)!;
+        deptName = (dic["deptName"] as? String) == nil ? "" : (dic["deptName"] as? String)!;
+        id = (dic["id"] as? String) == nil ? "" : (dic["id"] as? String)!;
+        userCode = (dic["userCode"] as? String) == nil ? "" : (dic["userCode"] as? String)!;
+        userId = (dic["userId"] as? String) == nil ? "" : (dic["userId"] as? String)!;
+        deptCode = (dic["deptCode"] as? String) == nil ? "" : (dic["deptCode"] as? String)!;
     }
     
 }

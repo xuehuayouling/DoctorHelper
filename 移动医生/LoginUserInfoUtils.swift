@@ -26,33 +26,33 @@ class LoginUserInfoUtils: NSObject {
     
     class func getSavedUserInfo() -> UserDTO {
         let userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults();
-        let dic:NSMutableDictionary = NSMutableDictionary();
+        var dic:Dictionary<String, AnyObject> = Dictionary();
         if let value = userDefaults.valueForKey("logined_user_info_mobile") as? String{
-            dic.setObject(value, forKey: "mobile");
+            dic["mobile"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_userId") as? String{
-            dic.setObject(value, forKey: "userId");
+            dic["userId"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_userRealName") as? String{
-            dic.setObject(value, forKey: "userRealName");
+            dic["userRealName"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_userCode") as? String{
-            dic.setObject(value, forKey: "userCode");
+            dic["userCode"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_deptCode") as? String{
-            dic.setObject(value, forKey: "deptCode");
+            dic["deptCode"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_loginTime") as? String{
-            dic.setObject(value, forKey: "loginTime");
+            dic["loginTime"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_token") as? String{
-            dic.setObject(value, forKey: "token");
+            dic["token"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_sex") as? String{
-            dic.setObject(value, forKey: "sex");
+            dic["sex"] = value;
         }
         if let value = userDefaults.valueForKey("logined_user_info_pwd") as? String{
-            dic.setObject(value, forKey: "pwd");
+            dic["pwd"] = value;
         }
         return UserDTO.init(dic: dic);
     }

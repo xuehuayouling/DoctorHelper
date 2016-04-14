@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SVProgressHUD
 
 class NetWorkUtils: NSObject {
 
@@ -40,4 +42,30 @@ class NetWorkUtils: NSObject {
         }
         return nil;
     }
+    
+    
+    class func requestForJson(method: Alamofire.Method = .GET, url: String, parameters: [String: AnyObject]? = nil, completionHandler: Dictionary<String, AnyObject> -> Void) {
+        let request = Alamofire.request(method, url, parameters: parameters);
+        log.info(request.description);
+        request.responseJSON { response in
+            if response.result.isSuccess {
+                if let dic:Dictionary<String, AnyObject> = response.result.value as? Dictionary {
+                    if (dic["message"] as? String) != nil {
+                        log.info(response.result.debugDescription);
+                        completionHandler(dic);
+                    } else {
+                        SVProgressHUD.showErrorWithStatus("服务器出错，请重试或联系管理员！");
+                        log.error(response.result.debugDescription);
+                    }
+                } else {
+                    SVProgressHUD.showErrorWithStatus("服务器出错，请重试或联系管理员！");
+                    log.error(response.debugDescription);
+                }
+            } else {
+                SVProgressHUD.showErrorWithStatus(response.result.error?.localizedDescription);
+                log.error(response.result.error.debugDescription);
+            }
+        }
+    }
+    
 }

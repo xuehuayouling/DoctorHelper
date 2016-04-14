@@ -20,16 +20,16 @@ class UserDTO: NSObject {
     let sex:String; // "1",
     let pwd:String; // "357ee1b53538667e9311912bb7566e23"
     
-    init(dic:NSDictionary) {
-        mobile = (dic.valueForKey("mobile") as? String) == nil ? "" : (dic.valueForKey("mobile") as? String)!;
-        userId = (dic.valueForKey("userId") as? String) == nil ? "" : (dic.valueForKey("userId") as? String)!;
-        userRealName = (dic.valueForKey("userRealName") as? String) == nil ? "" : (dic.valueForKey("userRealName") as? String)!;
-        userCode = (dic.valueForKey("userCode") as? String) == nil ? "" : (dic.valueForKey("userCode") as? String)!;
-        deptCode = (dic.valueForKey("deptCode") as? String) == nil ? "" : (dic.valueForKey("deptCode") as? String)!;
-        loginTime = (dic.valueForKey("loginTime") as? String) == nil ? "" : (dic.valueForKey("loginTime") as? String)!;
-        token = (dic.valueForKey("token") as? String) == nil ? "" : (dic.valueForKey("token") as? String)!;
-        sex = (dic.valueForKey("sex") as? String) == nil ? "" : (dic.valueForKey("sex") as? String)!;
-        pwd = (dic.valueForKey("pwd") as? String) == nil ? "" : (dic.valueForKey("pwd") as? String)!;
+    init(dic:Dictionary<String,AnyObject>) {
+        mobile = (dic["mobile"] as? String) == nil ? "" : (dic["mobile"] as? String)!;
+        userId = (dic["userId"] as? String) == nil ? "" : (dic["userId"] as? String)!;
+        userRealName = (dic["userRealName"] as? String) == nil ? "" : (dic["userRealName"] as? String)!;
+        userCode = (dic["userCode"] as? String) == nil ? "" : (dic["userCode"] as? String)!;
+        deptCode = (dic["deptCode"] as? String) == nil ? "" : (dic["deptCode"] as? String)!;
+        loginTime = (dic["loginTime"] as? String) == nil ? "" : (dic["loginTime"] as? String)!;
+        token = (dic["token"] as? String) == nil ? "" : (dic["token"] as? String)!;
+        sex = (dic["sex"] as? String) == nil ? "" : (dic["sex"] as? String)!;
+        pwd = (dic["pwd"] as? String) == nil ? "" : (dic["pwd"] as? String)!;
     }
     
 }

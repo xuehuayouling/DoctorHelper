@@ -55,34 +55,34 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonDidClick(sender: AnyObject) {
         if let url:String = NetWorkUtils.getLoginUrlStr() {
-            if let userName = usernameTextField.text {
-                if let passWord:String = passwordTextField.text {
-                    changeRememberLoginMsg();
-                    let params = ["userCode":userName, "pwd":passWord];
-                    let request = Alamofire.request(.GET, url, parameters: params);
-                    log.info(request.description);
-                    SVProgressHUD.show();
-                    request.responseJSON { response in
-                        SVProgressHUD.dismiss();
-                        log.debug(response.result.value?.description);
-                        if let dic:NSDictionary = response.result.value as? NSDictionary {
-                            if let data:NSDictionary = dic.valueForKey("data") as? NSDictionary {
-                                if let user:NSDictionary = data.valueForKey("user") as? NSDictionary {
-                                    let userDTO:UserDTO = UserDTO.init(dic: user);
-                                    LoginUserInfoUtils.saveUserInfo(userDTO);
-                                    
-                                    let sb = UIStoryboard(name:"Main", bundle: nil);
-                                    let deptVC = sb.instantiateInitialViewController()!;
-                                    self.navigationController?.presentViewController(deptVC, animated: true, completion: nil);
-                                }
-                            }
+            if let userName = usernameTextField.text, let passWord = passwordTextField.text {
+                changeRememberLoginMsg();
+                let params = ["userCode":userName, "pwd":passWord];
+                SVProgressHUD.show();
+                log.verbose("用户点击了登录");
+                NetWorkUtils.requestForJson(url: url, parameters: params) { respone in
+                    if respone["statusCode"] as? String == "1" {
+                        if let data:Dictionary<String,AnyObject> = respone["data"] as? Dictionary, let user:Dictionary<String,AnyObject> = data["user"] as? Dictionary {
+                            SVProgressHUD.dismiss();
+                            let userDTO:UserDTO = UserDTO.init(dic: user);
+                            LoginUserInfoUtils.saveUserInfo(userDTO);
+                            
+                            let sb = UIStoryboard(name:"Main", bundle: nil);
+                            let deptVC = sb.instantiateInitialViewController()!;
+                            self.navigationController?.presentViewController(deptVC, animated: true, completion: nil);
+                        } else {
+                            SVProgressHUD.showErrorWithStatus("服务器出错，请联系管理员");
+                            log.error(respone.debugDescription);
                         }
-                    };
-                }
+                    } else {
+                        SVProgressHUD.showErrorWithStatus(respone["message"] as? String);
+                    }
+                };
+            } else {
+                SVProgressHUD.showErrorWithStatus("请填写用户名和密码");
             }
-            
         } else {
-            print("nil");
+            SVProgressHUD.showErrorWithStatus("无法获取登录url，请联系开发人员");
         }
         
     }
