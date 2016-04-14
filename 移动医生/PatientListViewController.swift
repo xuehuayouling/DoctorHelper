@@ -11,6 +11,8 @@ import SVProgressHUD
 
 class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertViewDelegate {
 
+    var patientList:Array<PatientDTO> = Array();
+    
     var userDept: UserDeptDTO?;
     @IBOutlet weak var correctDeptButton: UIButton!
     @IBOutlet weak var doctorNameLabel: UILabel!
@@ -27,6 +29,7 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
         self.searchBar.backgroundColor = UIColor.clearColor();
         self.searchBar.delegate = self;
         
+        self.getPatientList();
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +66,25 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     }
     
     private func getPatientList() {
-        
+        let params = ["deptCode":"184", "token":LoginUserInfoUtils.getSavedUserInfo().token];
+        SVProgressHUD.show();
+        if let url = NetWorkUtils.getPatientListByDeptCodeUrlStr() {
+            NetWorkUtils.requestForJson(url: url, parameters: params) { dictionary in
+                if let data = dictionary["data"] as? Dictionary<String, AnyObject>, let patientList = data["patient"] as? Array<Dictionary<String,AnyObject>> {
+                    SVProgressHUD.dismiss();
+                    self.patientList.removeAll();
+                    for dic:Dictionary<String,AnyObject> in patientList {
+                        self.patientList.append(PatientDTO.init(dic: dic));
+                    }
+                    log.debug("病人数量" + self.patientList.count.description);
+                } else {
+                    SVProgressHUD.showErrorWithStatus("服务器解析数据出错，请联系管理员");
+                    log.error(dictionary.debugDescription);
+                }
+            }
+        } else {
+            SVProgressHUD.showErrorWithStatus("无根据部门id取病人列表url，请联系开发人员");
+        }
     }
     
 }

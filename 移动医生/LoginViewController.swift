@@ -61,21 +61,17 @@ class LoginViewController: UIViewController {
                 SVProgressHUD.show();
                 log.verbose("用户点击了登录");
                 NetWorkUtils.requestForJson(url: url, parameters: params) { respone in
-                    if respone["statusCode"] as? String == "1" {
-                        if let data:Dictionary<String,AnyObject> = respone["data"] as? Dictionary, let user:Dictionary<String,AnyObject> = data["user"] as? Dictionary {
-                            SVProgressHUD.dismiss();
-                            let userDTO:UserDTO = UserDTO.init(dic: user);
-                            LoginUserInfoUtils.saveUserInfo(userDTO);
-                            
-                            let sb = UIStoryboard(name:"Main", bundle: nil);
-                            let deptVC = sb.instantiateInitialViewController()!;
-                            self.navigationController?.presentViewController(deptVC, animated: true, completion: nil);
-                        } else {
-                            SVProgressHUD.showErrorWithStatus("服务器出错，请联系管理员");
-                            log.error(respone.debugDescription);
-                        }
+                    if let data:Dictionary<String,AnyObject> = respone["data"] as? Dictionary, let user:Dictionary<String,AnyObject> = data["user"] as? Dictionary {
+                        SVProgressHUD.dismiss();
+                        let userDTO:UserDTO = UserDTO.init(dic: user);
+                        LoginUserInfoUtils.saveUserInfo(userDTO);
+                        
+                        let sb = UIStoryboard(name:"Main", bundle: nil);
+                        let deptVC = sb.instantiateInitialViewController()!;
+                        self.navigationController?.presentViewController(deptVC, animated: true, completion: nil);
                     } else {
-                        SVProgressHUD.showErrorWithStatus(respone["message"] as? String);
+                        SVProgressHUD.showErrorWithStatus("服务器出错，请联系管理员");
+                        log.error(respone.debugDescription);
                     }
                 };
             } else {

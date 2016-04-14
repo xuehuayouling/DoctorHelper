@@ -85,9 +85,15 @@ class NetWorkUtils: NSObject {
         request.responseJSON { response in
             if response.result.isSuccess {
                 if let dic:Dictionary<String, AnyObject> = response.result.value as? Dictionary {
-                    if (dic["message"] as? String) != nil {
-                        log.info(response.result.debugDescription);
-                        completionHandler(dic);
+                    if (dic["message"] as? String) != nil && dic["statusCode"] as? String != nil {
+                        if dic["statusCode"] as? String == "1" {
+                            log.info(response.result.debugDescription);
+                            completionHandler(dic);
+                        } else {
+                            SVProgressHUD.showErrorWithStatus(dic["message"] as? String);
+                            log.error(response.result.debugDescription);
+                        }
+                        
                     } else {
                         SVProgressHUD.showErrorWithStatus("服务器出错，请重试或联系管理员！");
                         log.error(response.result.debugDescription);
