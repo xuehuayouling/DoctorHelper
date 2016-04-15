@@ -14,6 +14,9 @@ class DeptListViewController: UITableViewController {
     
     var userDepts:Array<UserDeptDTO> = Array();
     
+        /// 用于其它VC将此VC当pop显示时，点击item不跳用跳转方法，而是跳用此回调
+    var onDeptSelect:((dept:UserDeptDTO) -> Void)?;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getDeptList();
@@ -70,6 +73,22 @@ class DeptListViewController: UITableViewController {
         cell.textLabel?.text = userDept.deptName == "" ? "测试科室" : userDept.deptName;
         cell.textLabel?.textAlignment = NSTextAlignment.Center;
         return cell;
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if onDeptSelect != nil {
+            tableView.deselectRowAtIndexPath(indexPath, animated: false);
+            let userDept = userDepts[indexPath.row]
+            onDeptSelect!(dept: userDept);
+            
+        }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if onDeptSelect != nil {
+            return false;
+        }
+        return true;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

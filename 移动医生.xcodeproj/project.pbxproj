@@ -24,6 +24,8 @@
 		1A9355DD1CB77F3200CE7277 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9355CF1CB77EA000CE7277 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A9355E21CB7811000CE7277 /* constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A9355E11CB7811000CE7277 /* constants.plist */; };
 		1A9355E41CB781EC00CE7277 /* NetWorkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9355E31CB781EC00CE7277 /* NetWorkUtils.swift */; };
+		1AB4EA1A1CBFC45100393683 /* TendLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AB4EA191CBFC45100393683 /* TendLevel.plist */; };
+		1AB4EA1C1CBFC95F00393683 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4EA1B1CBFC95F00393683 /* ColorUtils.swift */; };
 		1ADE19961CB3B991002BCA91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE19951CB3B991002BCA91 /* AppDelegate.swift */; };
 		1ADE199D1CB3B991002BCA91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE199C1CB3B991002BCA91 /* Assets.xcassets */; };
 		1ADE19A01CB3B991002BCA91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE199E1CB3B991002BCA91 /* LaunchScreen.storyboard */; };
@@ -252,6 +254,8 @@
 		1A9355C41CB77EA000CE7277 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../Documents/work/资源/第三方框架/Alamofire/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		1A9355E11CB7811000CE7277 /* constants.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = constants.plist; sourceTree = "<group>"; };
 		1A9355E31CB781EC00CE7277 /* NetWorkUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkUtils.swift; sourceTree = "<group>"; };
+		1AB4EA191CBFC45100393683 /* TendLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TendLevel.plist; sourceTree = "<group>"; };
+		1AB4EA1B1CBFC95F00393683 /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		1ADE19921CB3B991002BCA91 /* 移动医生.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "移动医生.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADE19951CB3B991002BCA91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADE199C1CB3B991002BCA91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 			children = (
 				1ADE19A11CB3B991002BCA91 /* Info.plist */,
 				1A9355E11CB7811000CE7277 /* constants.plist */,
+				1AB4EA191CBFC45100393683 /* TendLevel.plist */,
 			);
 			name = config;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				1A9355E31CB781EC00CE7277 /* NetWorkUtils.swift */,
 				1A8A11981CBB9A4A002CE3AC /* LoginUserInfoUtils.swift */,
 				1A25F6901CBE0F85001727B9 /* Define.swift */,
+				1AB4EA1B1CBFC95F00393683 /* ColorUtils.swift */,
 			);
 			name = other;
 			sourceTree = "<group>";
@@ -367,13 +373,6 @@
 				1A4219AD1CBF9C890058181B /* WebImage.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1A90A6391CBB320100D90C96 /* 第三方 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "第三方";
 			sourceTree = "<group>";
 		};
 		1A9355C51CB77EA000CE7277 /* Products */ = {
@@ -417,7 +416,6 @@
 		1ADE19941CB3B991002BCA91 /* 移动医生 */ = {
 			isa = PBXGroup;
 			children = (
-				1A90A6391CBB320100D90C96 /* 第三方 */,
 				1A0633FB1CB496610072319E /* other */,
 				1A0633FA1CB4965A0072319E /* config */,
 				1A0633F91CB496490072319E /* controller */,
@@ -730,6 +728,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB4EA1A1CBFC45100393683 /* TendLevel.plist in Resources */,
 				1A0633FD1CB497D90072319E /* Login.storyboard in Resources */,
 				1A8A119B1CBBA38F002CE3AC /* Main.storyboard in Resources */,
 				1ADE19A01CB3B991002BCA91 /* LaunchScreen.storyboard in Resources */,
@@ -762,6 +761,7 @@
 				1A8A11971CBB946C002CE3AC /* DeptListViewController.swift in Sources */,
 				1AE1CDF61CBC7873001A3D0A /* UserDeptDTO.swift in Sources */,
 				1A04FE891CBCC69700322B0B /* PatientListViewController.swift in Sources */,
+				1AB4EA1C1CBFC95F00393683 /* ColorUtils.swift in Sources */,
 				1A42199A1CBF92800058181B /* PatientCardCell.swift in Sources */,
 				1AFDDAD71CBB42520046F776 /* LoginViewController.swift in Sources */,
 				1ADE19961CB3B991002BCA91 /* AppDelegate.swift in Sources */,

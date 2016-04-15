@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>0</string>
+		<key>name</key>
+		<string>特级护理</string>
+		<key>color</key>
+		<string>bb5ae4</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>name</key>
+		<string>一级护理</string>
+		<key>color</key>
+		<string>ea4b4e</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>2</string>
+		<key>name</key>
+		<string>二级护理</string>
+		<key>color</key>
+		<string>ebbb5e</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>3</string>
+		<key>name</key>
+		<string>三级护理</string>
+		<key>color</key>
+		<string>6d6d6d</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>-1</string>
+		<key>name</key>
+		<string>未指定</string>
+		<key>color</key>
+		<string>1274d2</string>
+	</dict>
+</array>
+</plist>

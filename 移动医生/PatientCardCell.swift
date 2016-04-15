@@ -34,7 +34,7 @@ class PatientCardCell: UICollectionViewCell {
         bedNumLabel.text = patient.bedNum + "床";
         patientNameLabel.text = patient.inpatientName;
         patientAgeLabel.text = patient.age;
-//        [self configTendLevelLabel:patient.nurseLevel];
+        configTendLevelLabel(patient.nurseLevel);
         patiClassLabel.text = patient.costType;
         hospitalIDLabel.text = patient.inpatientId;
         diagnosisLabel.text = patient.result;
@@ -55,4 +55,31 @@ class PatientCardCell: UICollectionViewCell {
         patientIconImageView.layer.cornerRadius = patientIconImageView.bounds.size.width*0.5;
         patientIconImageView.sd_setImageWithURL(NSURL.init(string: url), placeholderImage: UIImage.init(named: "登录页面-1"));
     }
+    
+    private func configTendLevelLabel(tendLevel: String) {
+        if let plistPath = NSBundle.mainBundle().pathForResource("TendLevel", ofType: "plist"), let levels:NSArray = NSArray(contentsOfFile: plistPath) {
+            var isUnknow = true;
+            var unknowColor:String?;
+            var unknowTitle:String?;
+            for object:AnyObject in levels {
+                let dic = object as! Dictionary<String, AnyObject>;
+                let codeID = dic["id"] as! String;
+                if tendLevel == codeID {
+                    self.tendLevelLabel.text = dic["name"] as? String;
+                    self.tendLevelLabel.backgroundColor = ColorUtils.colorFromString(dic["color"] as? String);
+                    isUnknow = false;
+                    break;
+                } else if codeID == "-1" {
+                    unknowColor = dic["color"] as? String;
+                    unknowTitle = dic["name"] as? String;
+                }
+            }
+            if isUnknow {
+                self.tendLevelLabel.text = unknowTitle;
+                self.tendLevelLabel.backgroundColor = ColorUtils.colorFromString(unknowColor);
+            }
+        }
+
+    }
+    
 }

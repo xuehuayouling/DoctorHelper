@@ -78,7 +78,6 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
                         self.patientList.append(PatientDTO.init(dic: dic));
                     }
                     self.patientsCollectionView.reloadData();
-                    log.debug("病人数量" + self.patientList.count.description);
                 } else {
                     SVProgressHUD.showErrorWithStatus("服务器解析数据出错，请联系管理员");
                     log.error(dictionary.debugDescription);
@@ -101,5 +100,16 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
         let patientCardCell:PatientCardCell = collectionView.dequeueReusableCellWithReuseIdentifier("patientCollectionCell", forIndexPath: indexPath) as! PatientCardCell;
         patientCardCell.loadData(self.patientList[indexPath.row]);
         return patientCardCell;
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDeptListSegue" {
+            let deptListCV = segue.destinationViewController as! DeptListViewController;
+            deptListCV.onDeptSelect = { dept in
+                deptListCV.dismissViewControllerAnimated(false, completion: nil);
+                self.userDept = dept;
+                self.getPatientList();
+            };
+        }
     }
 }
