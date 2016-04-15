@@ -68,7 +68,7 @@ class PatientCardCell: UICollectionViewCell {
                 let codeID = dic["id"] as! String;
                 if tendLevel == codeID {
                     self.tendLevelLabel.text = dic["name"] as? String;
-                    self.tendLevelLabel.backgroundColor = ColorUtils.colorFromString(dic["color"] as? String);
+                    self.tendLevelLabel.backgroundColor = ColorUtils.getColorByString16(dic["color"] as? String);
                     isUnknow = false;
                     break;
                 } else if codeID == "-1" {
@@ -78,7 +78,7 @@ class PatientCardCell: UICollectionViewCell {
             }
             if isUnknow {
                 self.tendLevelLabel.text = unknowTitle;
-                self.tendLevelLabel.backgroundColor = ColorUtils.colorFromString(unknowColor);
+                self.tendLevelLabel.backgroundColor = ColorUtils.getColorByString16(unknowColor);
             }
         }
 

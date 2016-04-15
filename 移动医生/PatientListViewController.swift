@@ -105,13 +105,13 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDeptListSegue" {
             let deptListCV = segue.destinationViewController as! DeptListViewController;
-            deptListCV.onDeptSelect = { dept in
+            deptListCV.onDeptSelect = { [weak self] dept in
                 /**
                  *  隐藏科室列表弹出框
                  */
                 deptListCV.dismissViewControllerAnimated(false, completion: nil);
-                self.userDept = dept;
-                self.getPatientList();
+                self?.userDept = dept;
+                self?.getPatientList();
             };
         }
     }
