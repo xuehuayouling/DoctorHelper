@@ -92,7 +92,7 @@
                                         </state>
                                         <connections>
                                             <segue destination="uFs-TX-i5l" kind="popoverPresentation" identifier="showDeptListSegue" popoverAnchorView="kbo-QG-peX" id="l4m-GB-Pvc">
-                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
                                     </button>
