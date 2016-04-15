@@ -57,6 +57,8 @@ class PatientCardCell: UICollectionViewCell {
     }
     
     private func configTendLevelLabel(tendLevel: String) {
+        self.tendLevelLabel.layer.cornerRadius = min(self.tendLevelLabel.bounds.size.height, self.tendLevelLabel.bounds.size.width) * 0.5;
+        self.tendLevelLabel.layer.masksToBounds = true;
         if let plistPath = NSBundle.mainBundle().pathForResource("TendLevel", ofType: "plist"), let levels:NSArray = NSArray(contentsOfFile: plistPath) {
             var isUnknow = true;
             var unknowColor:String?;
