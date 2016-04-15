@@ -106,6 +106,9 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
         if segue.identifier == "showDeptListSegue" {
             let deptListCV = segue.destinationViewController as! DeptListViewController;
             deptListCV.onDeptSelect = { dept in
+                /**
+                 *  隐藏科室列表弹出框
+                 */
                 deptListCV.dismissViewControllerAnimated(false, completion: nil);
                 self.userDept = dept;
                 self.getPatientList();

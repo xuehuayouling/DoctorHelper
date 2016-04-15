@@ -8,6 +8,7 @@
 
 import UIKit
 import XCGLogger
+import SVProgressHUD
 
 let log = XCGLogger.defaultInstance()
 
@@ -28,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .Error: XCGLogger.XcodeColor(fg: UIColor.redColor(), bg: UIColor.whiteColor()), // Optionally use a UIColor
             .Severe: XCGLogger.XcodeColor(fg: (255, 255, 255), bg: (255, 0, 0)) // Optionally use RGB values directly
         ]
+        
+        /**
+         *  将HUD默认设置为模态
+         */
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black);
+        
         return true
     }
 
