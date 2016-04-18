@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
-import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
@@ -64,9 +63,6 @@ class LoginViewController: UIViewController {
                 NetWorkUtils.requestForJson(url: url, parameters: params) { respone in
                     if let data:Dictionary<String,AnyObject> = respone["data"] as? Dictionary, let user:Dictionary<String,AnyObject> = data["user"] as? Dictionary {
                         SVProgressHUD.dismiss();
-//                        if let usrDTO = JSON(user).object as? UserDTO {
-//                            _ = usrDTO;
-//                        }
                         let userDTO:UserDTO = UserDTO.init(dic: user);
                         LoginUserInfoUtils.saveUserInfo(userDTO);
                         

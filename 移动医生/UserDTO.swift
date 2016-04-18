@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserDTO: NSObject {
+class UserDTO: AnyObject {
     
     let mobile:String; // "13736094159         ",
     let userId:String; // "239",
