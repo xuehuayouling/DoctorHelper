@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          *  将HUD默认设置为模态
          */
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black);
+        SVProgressHUD.setMinimumDismissTimeInterval(2.0);
         
         return true
     }
