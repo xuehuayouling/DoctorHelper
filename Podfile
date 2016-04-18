@@ -3,6 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios
 pod 'SVProgressHUD', '2.0.3' #, :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 pod 'ChameleonFramework/Swift', '2.1.0' #, :git => 'https://github.com/ViccAlexander/Chameleon.git'
+pod 'MJRefresh', '3.1.0' #, :git => 'https://github.com/CoderMJLee/MJRefresh'
 
 platform :ios, '9.0'
 use_frameworks!

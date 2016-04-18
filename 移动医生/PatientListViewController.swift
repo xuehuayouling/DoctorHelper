@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import MJRefresh
 
 class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -32,6 +33,16 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
          */
         self.searchBar.subviews[0].subviews[0].removeFromSuperview();
         self.searchBar.backgroundColor = UIColor.clearColor();
+        
+        /**
+         添加下拉刷新功能
+         */
+        self.patientsCollectionView.mj_header = MJRefreshNormalHeader.init(){ [weak self] in
+            self?.getPatientList();
+        }
+        (self.patientsCollectionView.mj_header as? MJRefreshNormalHeader)?.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge;
+        (self.patientsCollectionView.mj_header as? MJRefreshStateHeader)?.stateLabel.textColor = UIColor.whiteColor();
+        (self.patientsCollectionView.mj_header as? MJRefreshStateHeader)?.lastUpdatedTimeLabel.textColor = UIColor.whiteColor();
         
         self.getPatientList();
     }
@@ -71,9 +82,9 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     
     @IBAction func loginOutButtonDidClick(sender: UIButton) {
         let alert = UIAlertController.init(title: "注销当前账户？", message: nil, preferredStyle: UIAlertControllerStyle.Alert);
-        let confirmAction = UIAlertAction.init(title: "确认", style: UIAlertActionStyle.Default) { (action) in
+        let confirmAction = UIAlertAction.init(title: "确认", style: UIAlertActionStyle.Default) { [weak self] (action) in
             LoginUserInfoUtils.clearSavedUserInfo();
-            self.performSegueWithIdentifier("loginOutSegue", sender: nil);
+            self?.performSegueWithIdentifier("loginOutSegue", sender: nil);
         }
         let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil);
         alert.addAction(confirmAction);
@@ -85,14 +96,15 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
         let params = ["deptCode":"184", "token":LoginUserInfoUtils.getSavedUserInfo().token];
         SVProgressHUD.show();
         if let url = NetWorkUtils.getPatientListByDeptCodeUrlStr() {
-            NetWorkUtils.requestForJson(url: url, parameters: params) { dictionary in
+            NetWorkUtils.requestForJson(url: url, parameters: params) { [weak self] dictionary in
                 if let data = dictionary["data"] as? Dictionary<String, AnyObject>, let patientList = data["patient"] as? Array<Dictionary<String,AnyObject>> {
                     SVProgressHUD.dismiss();
-                    self.patientList.removeAll();
+                    self?.patientList.removeAll();
                     for dic:Dictionary<String,AnyObject> in patientList {
-                        self.patientList.append(PatientDTO.init(dic: dic));
+                        self?.patientList.append(PatientDTO.init(dic: dic));
                     }
-                    self.patientsCollectionView.reloadData();
+                    self?.patientsCollectionView.mj_header?.endRefreshing();
+                    self?.patientsCollectionView.reloadData();
                 } else {
                     SVProgressHUD.showErrorWithStatus("服务器解析数据出错，请联系管理员");
                     log.error(dictionary.debugDescription);
