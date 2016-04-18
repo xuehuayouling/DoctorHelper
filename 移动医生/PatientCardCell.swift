@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import WebImage
+import SDWebImage
+import ChameleonFramework
 
 class PatientCardCell: UICollectionViewCell {
 
@@ -68,7 +69,9 @@ class PatientCardCell: UICollectionViewCell {
                 let codeID = dic["id"] as! String;
                 if tendLevel == codeID {
                     self.tendLevelLabel.text = dic["name"] as? String;
-                    self.tendLevelLabel.backgroundColor = ColorUtils.getColorByString16(dic["color"] as? String);
+                    if let color = dic["color"] as? String {
+                        self.tendLevelLabel.backgroundColor = HexColor(color);
+                    }
                     isUnknow = false;
                     break;
                 } else if codeID == "-1" {
@@ -78,7 +81,10 @@ class PatientCardCell: UICollectionViewCell {
             }
             if isUnknow {
                 self.tendLevelLabel.text = unknowTitle;
-                self.tendLevelLabel.backgroundColor = ColorUtils.getColorByString16(unknowColor);
+                if unknowColor != nil {
+                    self.tendLevelLabel.backgroundColor = HexColor(unknowColor!);
+                }
+                
             }
         }
 
