@@ -106,6 +106,9 @@
                                             <segment title="我的患者"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="patientCardTypeSegmentValueChanged:" destination="XVZ-Xx-DXZ" eventType="valueChanged" id="QAx-H6-u6C"/>
+                                        </connections>
                                     </segmentedControl>
                                     <searchBar contentMode="redraw" placeholder="输入姓名、床号或住院号查询" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-7U-K4i">
                                         <rect key="frame" x="320" y="0.0" width="150" height="40"/>
@@ -118,6 +121,9 @@
                                                 <exclude reference="bQy-aa-scx"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outlet property="delegate" destination="XVZ-Xx-DXZ" id="jIo-r0-gqP"/>
+                                        </connections>
                                     </searchBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="医生姓名" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL8-SQ-zmS">
                                         <rect key="frame" x="480" y="0.0" width="80" height="40"/>
@@ -425,6 +431,7 @@
                     <connections>
                         <outlet property="correctDeptButton" destination="kbo-QG-peX" id="ZY7-N4-Doo"/>
                         <outlet property="doctorNameLabel" destination="jL8-SQ-zmS" id="r2b-eZ-JHb"/>
+                        <outlet property="patientCardTypeSegmentedControl" destination="vXo-Hg-UxV" id="OnD-RN-5ez"/>
                         <outlet property="patientsCollectionView" destination="KQh-ER-gCG" id="2ho-kk-m4n"/>
                         <outlet property="searchBar" destination="c4m-7U-K4i" id="5KA-hC-O4w"/>
                         <segue destination="2xa-KH-y7q" kind="show" identifier="loginOutSegue" id="Wns-ae-3hc"/>

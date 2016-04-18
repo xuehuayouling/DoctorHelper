@@ -12,12 +12,16 @@ import SVProgressHUD
 class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var patientList:Array<PatientDTO> = Array();
+    var patientListForShow:Array<PatientDTO> = Array();
     
     var userDept: UserDeptDTO?;
     @IBOutlet weak var correctDeptButton: UIButton!
     @IBOutlet weak var doctorNameLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var patientsCollectionView: UICollectionView!
+    @IBOutlet weak var patientCardTypeSegmentedControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         correctDeptButton.setTitle(userDept?.deptName, forState: UIControlState.Normal);
@@ -28,7 +32,6 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
          */
         self.searchBar.subviews[0].subviews[0].removeFromSuperview();
         self.searchBar.backgroundColor = UIColor.clearColor();
-        self.searchBar.delegate = self;
         
         self.getPatientList();
     }
@@ -52,6 +55,18 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated);
         self.navigationController?.navigationBarHidden = false;
+    }
+    
+    @IBAction func patientCardTypeSegmentValueChanged(sender: UISegmentedControl) {
+        self.patientsCollectionView.reloadData();
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.patientsCollectionView.reloadData();
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.patientsCollectionView.reloadData();
     }
     
     @IBAction func loginOutButtonDidClick(sender: UIButton) {
@@ -93,12 +108,13 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return patientList.count;
+        self.updateShowPatientList();
+        return patientListForShow.count;
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let patientCardCell:PatientCardCell = collectionView.dequeueReusableCellWithReuseIdentifier("patientCollectionCell", forIndexPath: indexPath) as! PatientCardCell;
-        patientCardCell.loadData(self.patientList[indexPath.row]);
+        patientCardCell.loadData(self.patientListForShow[indexPath.row]);
         return patientCardCell;
     }
     
@@ -112,6 +128,32 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
                 deptListCV.dismissViewControllerAnimated(false, completion: nil);
                 self?.userDept = dept;
                 self?.getPatientList();
+            };
+        }
+    }
+    
+    /**
+     根据患者类型（我的患者或者科室环则）和搜索框来过滤要显示的患者
+     */
+    private func updateShowPatientList() {
+        self.patientListForShow = self.patientList;
+        if self.patientCardTypeSegmentedControl.selectedSegmentIndex == 1 {
+            let userCode = LoginUserInfoUtils.getSavedUserInfo().userCode;
+            self.patientListForShow = self.patientListForShow.filter(){ (patientDTO) -> Bool in
+                if patientDTO.zgDoctor == userCode {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+        }
+        if let searchKey = self.searchBar.text where searchKey.characters.count > 0 {
+            self.patientListForShow = self.patientListForShow.filter(){ (patientDTO) -> Bool in
+                if patientDTO.inpatientName.containsString(searchKey) || patientDTO.bedNum.containsString(searchKey) || patientDTO.inpatientId.containsString(searchKey) {
+                    return true;
+                } else {
+                    return false;
+                }
             };
         }
     }
