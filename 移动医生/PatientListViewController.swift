@@ -44,7 +44,7 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
         (self.patientsCollectionView.mj_header as? MJRefreshStateHeader)?.stateLabel.textColor = UIColor.whiteColor();
         (self.patientsCollectionView.mj_header as? MJRefreshStateHeader)?.lastUpdatedTimeLabel.textColor = UIColor.whiteColor();
         
-        self.getPatientList();
+        self.patientsCollectionView.mj_header.beginRefreshing();
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +94,7 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
     
     private func getPatientList() {
         let params = ["deptCode":"184", "token":LoginUserInfoUtils.getSavedUserInfo().token];
-        SVProgressHUD.show();
+//        SVProgressHUD.show();
         if let url = NetWorkUtils.getPatientListByDeptCodeUrlStr() {
             NetWorkUtils.requestForJson(url: url, parameters: params) { [weak self] dictionary in
                 if let data = dictionary["data"] as? Dictionary<String, AnyObject>, let patientList = data["patient"] as? Array<Dictionary<String,AnyObject>> {
@@ -139,6 +139,7 @@ class PatientListViewController: UIViewController, UISearchBarDelegate, UIAlertV
                  */
                 deptListCV.dismissViewControllerAnimated(false, completion: nil);
                 self?.userDept = dept;
+                self?.correctDeptButton.setTitle(dept.deptName, forState: UIControlState.Normal);
                 self?.getPatientList();
             };
         }
